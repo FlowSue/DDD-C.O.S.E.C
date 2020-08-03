@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Authors>flow.sue</Authors>
+    <Version>1.0.4.5</Version>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\C.O.S.E.C.Infrastructure.Auth\C.O.S.E.C.Infrastructure.Auth.csproj" />
+    <ProjectReference Include="..\C.O.S.E.C.Infrastructure.Config\C.O.S.E.C.Infrastructure.Config.csproj" />
+    <ProjectReference Include="..\C.O.S.E.C.Infrastructure.Cors\C.O.S.E.C.Infrastructure.Cors.csproj" />
+    <ProjectReference Include="..\C.O.S.E.C.Infrastructure.CustomException\C.O.S.E.C.Infrastructure.CustomException.csproj" />
+    <ProjectReference Include="..\C.O.S.E.C.Infrastructure.Swagger\C.O.S.E.C.Infrastructure.Swagger.csproj" />
+    <ProjectReference Include="..\C.O.S.E.C.Infrastructure.Treasury\C.O.S.E.C.Infrastructure.Treasury.csproj" />
+  </ItemGroup>
+
+</Project>

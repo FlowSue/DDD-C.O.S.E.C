@@ -1,0 +1,29 @@
+﻿namespace C.O.S.E.C.Domain.Enums.Auth
+{
+    /// <summary>
+    /// 授权策略模式枚举
+    /// </summary>
+    public enum AuthPolicyEnum
+    {
+        /// <summary>
+        /// 开放接口，不需要授权
+        /// </summary>
+        Free,
+        /// <summary>
+        /// 仅对客户端用户开放
+        /// </summary>
+        RequireRoleOfClient,
+        /// <summary>
+        /// 仅对后台用户开放
+        /// </summary>
+        RequireRoleOfAdmin,
+        /// <summary>
+        /// 仅对客户端或后台用户开放
+        /// </summary>
+        RequireRoleOfAdminOrClient,
+        /// <summary>
+        /// 仅对系统管理员开放
+        /// </summary>
+        RequireRoleOfSystemAdmin
+    }
+}
