@@ -21,54 +21,67 @@ namespace C.O.S.E.C.Domain.Entity
         /// 编码
         /// </summary>
         public string EnCode { get; set; }
+
         /// <summary>
         /// 全称
         /// </summary>
         public string FullName { get; set; }
+
         /// <summary>
         /// 公司地址
         /// </summary>
         public string CompanyAddress { get; set; }
+
         /// <summary>
         /// 公司站点
         /// </summary>
         public string CompanyNetSite { get; set; }
+
         /// <summary>
         /// 公司性质
         /// </summary>
         public string CompanyNatureId { get; set; }
+
         /// <summary>
         /// 联系人
         /// </summary>
         public string Contact { get; set; }
+
         /// <summary>
         /// 移动电话
         /// </summary>
         public string Mobile { get; set; }
+
         /// <summary>
         /// 省
         /// </summary>
         public string Province { get; set; }
+
         /// <summary>
         /// 市
         /// </summary>
         public string City { get; set; }
+
         /// <summary>
         /// 区
         /// </summary>
         public string District { get; set; }
+
         /// <summary>
         /// 备注
         /// </summary>
         public string Description { get; set; }
+
         /// <summary>
         /// 跟进用户ID
         /// </summary>
         public string TraceUserID { get; set; }
+
         /// <summary>
         /// 跟进用户名称
         /// </summary>
         public string TraceUserName { get; set; }
+
         /// <summary>
         /// 是否启用
         /// </summary>
@@ -138,13 +151,6 @@ namespace C.O.S.E.C.Domain.Entity
             }
             return this;
         }
-        /// <summary>
-        /// 新增调用
-        /// </summary>
-        public override void Create()
-        {
-            throw new NotImplementedException();
-        }
 
         /// <summary>
         /// 更新调用
@@ -163,14 +169,6 @@ namespace C.O.S.E.C.Domain.Entity
                 SystemID = setter.SystemId.ToString();
             }
             return this;
-        }
-        /// <summary>
-        /// 修改调用
-        /// </summary>
-        /// <param name="keyValue"></param>
-        public override void Modify(Guid keyValue)
-        {
-            throw new NotImplementedException();
         }
 
         #region 线索转商机

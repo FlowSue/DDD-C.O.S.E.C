@@ -16,50 +16,62 @@ namespace C.O.S.E.C.Domain.InterfaceDrivers
         /// ID
         /// </summary>
         Guid ID { get; set; }
+
         /// <summary>
         /// 是否启用
         /// </summary>
         bool IsEnable { get; set; }
+
         /// <summary>
         /// 创建时间
         /// </summary>
         DateTime CreateTime { get; set; }
+
         /// <summary>
         /// 创建人ID
         /// </summary>
         string CreateUserID { get; set; }
+
         /// <summary>
         /// 创建人名称
         /// </summary>
         string CreateUserName { get; set; }
+
         /// <summary>
         /// 创建时间
         /// </summary>
         DateTime UpdateTime { get; set; }
+
         /// <summary>
         /// 创建人ID
         /// </summary>
         string UpdateUserID { get; set; }
+
         /// <summary>
         /// 创建人名称
         /// </summary>
         string UpdateUserName { get; set; }
+
         /// <summary>
         /// 是否删除
         /// </summary>
         bool IsDelete { get; set; }
+
         /// <summary>
         /// 状态
         /// </summary>
         StatusState Status { get; set; }
+
         /// <summary>
         /// 系统标识符
         /// </summary>
         string SystemID { get; set; }
+
         /// <summary>
         /// 新增调用
         /// </summary>
         T Create(IEntityBaseAutoSetter setter);
+
         /// <summary>
         /// 编辑调用
         /// </summary>

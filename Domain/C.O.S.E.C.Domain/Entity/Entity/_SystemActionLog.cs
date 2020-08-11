@@ -8,62 +8,78 @@ namespace C.O.S.E.C.Domain.Entity
     /// <summary>
     /// 系统访问日志
     /// </summary>
-    public class _SystemActionLog : IEntity<_SystemActionLog>
+    public class _SystemActionLog : BaseEntityModel, IEntity<_SystemActionLog>
     {
         /// <summary>
         /// 调用API地址
         /// </summary>
         public string ActionPath { get; set; }
+
         /// <summary>
         /// 请求者IP
         /// </summary>
         public string RequestIP { get; set; }
+
         /// <summary>
         /// 访问控制器
         /// </summary>
         public string ControllerName { get; set; }
+
         /// <summary>
         /// 执行动作
         /// </summary>
         public string ActionName { get; set; }
+
         /// <summary>
         /// 备注
         /// </summary>
         public string Description { get; set; }
+
         /// <summary>
         /// 主键
         /// </summary>
-        public Guid ID { get; set; }
+        public override Guid ID { get; set; }
+
         /// <summary>
         /// 是否启用
         /// </summary>
-        public bool IsEnable { get; set; }
+        public override bool IsEnable { get; set; }
+
         /// <summary>
         /// 创建时间
         /// </summary>
-        public DateTime CreateTime { get; set; }
+        public override DateTime CreateTime { get; set; }
+
         /// <summary>
         /// 创建用户ID
         /// </summary>
-        public string CreateUserID { get; set; }
+        public override string CreateUserID { get; set; }
+
         /// <summary>
         /// 创建用户名称
         /// </summary>
-        public string CreateUserName { get; set; }
+        public override string CreateUserName { get; set; }
+
         /// <summary></summary>
-        public DateTime UpdateTime { get; set; }
+        public override DateTime UpdateTime { get; set; }
+
         /// <summary></summary>
-        public string UpdateUserID { get; set; }
+        public override string UpdateUserID { get; set; }
+
         /// <summary></summary>
-        public string UpdateUserName { get; set; }
+        public override string UpdateUserName { get; set; }
+
         /// <summary></summary>
-        public bool IsDelete { get; set; } = false;
+        public override bool IsDelete { get; set; } = false;
+
         /// <summary></summary>
-        public StatusState Status { get; set; } = StatusState.Normal;
+        public override StatusState Status { get; set; } = StatusState.Normal;
+
         /// <summary>
         /// 系统标识
         /// </summary>
-        public string SystemID { get; set; }
+        public override string SystemID { get; set; }
+
         /// <summary>
         /// 新增调用
         /// </summary>
@@ -87,6 +103,7 @@ namespace C.O.S.E.C.Domain.Entity
             }
             return this;
         }
+
         /// <summary>
         /// 更新调用
         /// </summary>
