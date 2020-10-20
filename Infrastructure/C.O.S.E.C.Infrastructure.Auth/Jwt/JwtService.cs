@@ -10,9 +10,9 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 //三方包
 using Newtonsoft.Json;
 //本地项目包
-using C.O.S.E.C.Infrastructure.Auth.Enums;
-using C.O.S.E.C.Infrastructure.Auth.Models;
 using IdentityModel;
+using C.O.S.E.C.Domain.Models;
+using C.O.S.E.C.Domain.Enums.Auth;
 
 namespace C.O.S.E.C.Infrastructure.Auth.Jwt
 {
@@ -48,7 +48,7 @@ namespace C.O.S.E.C.Infrastructure.Auth.Jwt
                 new Claim(JwtClaimTypes.Role, tokenModel.Role),//身份
                 //new Claim("proj", tokenModel.Project),//项目
                 new Claim(JwtRegisteredClaimNames.Iat,dateTime.ToUniversalTime().ToString(),ClaimValueTypes.Integer64),
-                new Claim(ClaimTypeEnum.TokenModel.ToString(),JsonConvert.SerializeObject(tokenModel)),
+                new Claim(ClaimEnum.TokenModel.ToString(),JsonConvert.SerializeObject(tokenModel)),
             };
             var expMin = tokenModel.TokenType switch
             {

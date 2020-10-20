@@ -1,0 +1,608 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>C.O.S.E.C.Api</name>
+    </assembly>
+    <members>
+        <member name="T:C.O.S.E.C.Api.Controllers.CustomerController">
+            <summary>
+            商机<![CDATA[&]]>客户系统接口
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.#ctor(C.O.S.E.C.Domain.InterfaceDrivers.Business.ICluePoolBLL,C.O.S.E.C.Domain.InterfaceDrivers.Business.IBusinessPoolBLL,C.O.S.E.C.Domain.InterfaceDrivers.Business.ICustomerBLL,C.O.S.E.C.Domain.InterfaceDrivers.Business.ICustomerTrailRecordBLL)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="cluePoolBLL"></param>
+            <param name="businessPoolBLL"></param>
+            <param name="customerBLL"></param>
+            <param name="trailRecordBLL"></param>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.GetCluesAsync">
+            <summary>
+            获取线索数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.GetCluePageAsync(C.O.S.E.C.Domain.Models.Pagination)">
+            <summary>
+            获取线索分页数据
+            </summary>
+            <param name="pagination"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.ExportExcelAsync(Microsoft.AspNetCore.Http.IFormFile,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            Excel导入线索
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.GetClueAsync(System.Guid)">
+            <summary>
+            获取线索详情
+            </summary>
+            <param name="keyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.AddClueAsync(C.O.S.E.C.Domain.Entity.CluePool)">
+            <summary>
+            新增线索
+            </summary>
+            <param name="clue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.EditClueAsync(System.Guid,C.O.S.E.C.Domain.Entity.CluePool)">
+            <summary>
+            修改线索
+            </summary>
+            <param name="keyValue"></param>
+            <param name="clue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.DeleteClueAsync(System.Guid)">
+            <summary>
+            删除线索
+            </summary>
+            <param name="keyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.ConversionBusinessAsync(System.Guid)">
+            <summary>
+            线索转换商机
+            </summary>
+            <param name="keyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.GetBusinessPageAsync(C.O.S.E.C.Domain.Models.Pagination)">
+            <summary>
+            获取商机分页数据
+            </summary>
+            <param name="pagination"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.InvalidBusinessAsync(System.Guid)">
+            <summary>
+            标记无效商机
+            </summary>
+            <param name="keyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.GetBusinessAsync(System.Guid)">
+            <summary>
+            获取商机详情
+            </summary>
+            <param name="keyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.AddBusinessAsync(C.O.S.E.C.Domain.Entity.BusinessPool)">
+            <summary>
+            新增商机
+            </summary>
+            <param name="business"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.EditBusinessAsync(System.Guid,C.O.S.E.C.Domain.Entity.BusinessPool)">
+            <summary>
+            修改商机
+            </summary>
+            <param name="keyValue"></param>
+            <param name="business"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.DeleteBusinessAsync(System.Guid)">
+            <summary>
+            删除商机
+            </summary>
+            <param name="keyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.ConversionCustomerAsync(System.Guid)">
+            <summary>
+            商机转换客户
+            </summary>
+            <param name="keyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.GetCustomerPageAsync(C.O.S.E.C.Domain.Models.Pagination)">
+            <summary>
+            获取客户分页数据
+            </summary>
+            <param name="pagination"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.GetCustomerAsync(System.Guid)">
+            <summary>
+            获取客户详情
+            </summary>
+            <param name="keyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.AddCustomerAsync(C.O.S.E.C.Domain.Entity.Customer)">
+            <summary>
+            新增客户
+            </summary>
+            <param name="customer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.EditCustomerAsync(System.Guid,C.O.S.E.C.Domain.Entity.Customer)">
+            <summary>
+            修改客户
+            </summary>
+            <param name="keyValue"></param>
+            <param name="customer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.InvalidCustomerAsync(System.Guid)">
+            <summary>
+            标记无效客户
+            </summary>
+            <param name="keyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.DeleteCustomerAsync(System.Guid)">
+            <summary>
+            删除客户
+            </summary>
+            <param name="keyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.RangeDeleteCustomerAsync(System.Collections.Generic.List{System.String})">
+            <summary>
+            批量删除客户
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.GetTrailRecordAsync(System.String)">
+            <summary>
+            获取商机<![CDATA[&]]>客户的跟进记录
+            </summary>
+            <param name="keyValue">商机ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.AddTrailRecord(C.O.S.E.C.Domain.Entity.CustomerTrailRecord)">
+            <summary>
+            新增跟进记录
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.EditTrailRecord(System.Guid,C.O.S.E.C.Domain.Entity.CustomerTrailRecord)">
+            <summary>
+            修改跟进记录
+            </summary>
+            <param name="keyValue"></param>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.DeleteTrailRecord(System.Guid)">
+            <summary>
+            删除跟进记录
+            </summary>
+            <param name="keyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="T:C.O.S.E.C.Api.Controllers.EmployeeController">
+            <summary>
+            员工系统接口
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.EmployeeController.GetWorkPlanPageAsync(C.O.S.E.C.Domain.Models.Pagination)">
+            <summary>
+            获取工作计划分页数据
+            </summary>
+            <param name="pagination"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.EmployeeController.GetWorkPlanAsync(System.Guid)">
+            <summary>
+            获取工作计划内容
+            </summary>
+            <param name="keyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.EmployeeController.WriteWorkPlanAsync(C.O.S.E.C.Domain.Entity.EmployeeWorkPlan)">
+            <summary>
+            新增工作计划
+            </summary>
+            <param name="workPlan"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.EmployeeController.EditWorkPlanAsync(System.Guid,C.O.S.E.C.Domain.Entity.EmployeeWorkPlan)">
+            <summary>
+            修改工作计划
+            </summary>
+            <param name="keyValue"></param>
+            <param name="workPlan"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.EmployeeController.DeleteWorkPlanAsync(System.Guid)">
+            <summary>
+            删除工作计划
+            </summary>
+            <param name="keyValue"></param>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.EmployeeController.GetWorkLogPageAsync(C.O.S.E.C.Domain.Models.Pagination)">
+            <summary>
+            获取工作日志分页数据
+            </summary>
+            <param name="pagination"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.EmployeeController.GetWorkLogAsync(System.Guid)">
+            <summary>
+            获取工作日志内容
+            </summary>
+            <param name="keyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.EmployeeController.WriteWorkLogAsync(C.O.S.E.C.Domain.Entity.EmployeeWorkLog)">
+            <summary>
+            新增工作日志
+            </summary>
+            <param name="workLog"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.EmployeeController.EditWorkLogAsync(System.Guid,C.O.S.E.C.Domain.Entity.EmployeeWorkLog)">
+            <summary>
+            修改工作日志
+            </summary>
+            <param name="keyValue"></param>
+            <param name="workLog"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.EmployeeController.DeleteWorkLogAsync(System.Guid)">
+            <summary>
+            删除工作日志
+            </summary>
+            <param name="keyValue"></param>
+        </member>
+        <member name="T:C.O.S.E.C.Api.Controllers.FileController">
+            <summary>
+            文件管理
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.FileController.UploadImgList(Microsoft.AspNetCore.Http.IFormFileCollection,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            上传多张图片
+            </summary>
+            <param name="files"></param>
+            <param name="hostingEnvironment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.FileController.UploadImg(Microsoft.AspNetCore.Http.IFormFile,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            上传单张图片
+            </summary>
+            <param name="file"></param>
+            <param name="hostingEnvironment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.FileController.UploadDocAsync(Microsoft.AspNetCore.Http.IFormFile,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            上传文件
+            </summary>
+            <param name="file"></param>
+            <param name="hostingEnvironment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.FileController.UploadDocList(Microsoft.AspNetCore.Http.IFormFileCollection,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            上传多文件
+            </summary>
+            <param name="files"></param>
+            <param name="hostingEnvironment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.FileController.LoadingPhoto(System.String,System.String)">
+            <summary>
+            获取图片
+            </summary>
+            <param name="path"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.FileController.GetFileListByUserAsync(C.O.S.E.C.Domain.Models.Pagination,System.String)">
+            <summary>
+            获取用户文件列表
+            </summary>
+            <param name="pagination"></param>
+            <param name="uid"></param>
+            <returns></returns>
+        </member>
+        <member name="T:C.O.S.E.C.Api.Controllers.InternalController">
+            <summary>
+            内部用
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.InternalController.GetTargetCustomersAsync(System.Int32)">
+            <summary>
+            获取目标客户
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.InternalController.CreateTargetCustomerAsync(C.O.S.E.C.Domain.Entity.Internal.TargetCustomers)">
+            <summary>
+            新增目标客户
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.InternalController.EditTargetCustomerAsync(System.Int32,C.O.S.E.C.Domain.Entity.Internal.TargetCustomers)">
+            <summary>
+            修改目标客户
+            </summary>
+            <param name="id"></param>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.InternalController.DeleteTargetCustomerAsync(System.Int32)">
+            <summary>
+            删除目标客户
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.InternalController.GetInternalCustomersAsync(System.Int32)">
+            <summary>
+            获取成交客户列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.InternalController.CreateInternalCustomerAsync(C.O.S.E.C.Domain.Entity.Internal.InternalCustomers)">
+            <summary>
+            新增成交客户
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.InternalController.EditInternalCustomerAsync(System.Int32,C.O.S.E.C.Domain.Entity.Internal.InternalCustomers)">
+            <summary>
+            修改成交客户
+            </summary>
+            <param name="id"></param>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.InternalController.DeleteInternalCustomerAsync(System.Int32)">
+            <summary>
+            删除成交客户
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:C.O.S.E.C.Api.Controllers.LogController">
+            <summary>
+            日志
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Api.Controllers.LoginController">
+            <summary>
+            登录系统接口
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.LoginController.CheckLogin(C.O.S.E.C.Domain.ViewModels.LoginEntity,C.O.S.E.C.Infrastructure.Auth.Jwt.IJwtService)">
+            <summary>
+            登录验证
+            </summary>
+            <param name="entity"></param>
+            <param name="jwtService"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.LoginController.ExitLogin(System.String)">
+            <summary>
+            退出登录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.LoginController.TakeToken(System.String,C.O.S.E.C.Infrastructure.Auth.Jwt.IJwtService)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:C.O.S.E.C.Api.Controllers.MenuController">
+            <summary>
+            用户功能列表管理
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Api.Controllers.ReportController">
+            <summary>
+            报表
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Api.Controllers.ScheduleController">
+            <summary>
+            日程管理
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Api.Controllers.ServicesController">
+            <summary>
+            服务管理
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Api.Controllers.SignalRController">
+            <summary>
+            IM
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Api.Controllers.SystemSettingController">
+            <summary>
+            系统设置
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Api.Controllers.TestController">
+            <summary>
+            系统测试接口
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.TestController.GetJWTStr(System.String,System.String,System.String,System.String,C.O.S.E.C.Domain.Enums.Auth.TokenTypeEnum)">
+            <summary>
+            模拟登录，获取JWT
+            </summary>
+            <param name="uid"></param>
+            <param name="uname"></param>
+            <param name="role"></param>
+            <param name="project"></param>
+            <param name="tokenType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.TestController.TestException">
+            <summary>
+            测试异常
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.TestController.TestException2">
+            <summary>
+            测试异常2
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.TestController.TestException3">
+            <summary>
+            测试异常3
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.TestController.TestException4">
+            <summary>
+            测试异常4
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.TestController.TestException5">
+            <summary>
+            测试异常5
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.TestController.TestException6">
+            <summary>
+            测试异常6
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.TestController.TestException7">
+            <summary>
+            测试异常7
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.TestController.TestConfig1">
+            <summary>
+            测试配置1
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.TestController.TestConfig2">
+            <summary>
+            测试配置2
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:C.O.S.E.C.Api.Controllers.TransactionController">
+            <summary>
+            交易管理
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Api.Controllers.UserCenterController">
+            <summary>
+            个人中心
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.UserCenterController.#ctor(C.O.S.E.C.Domain.InterfaceDrivers.Business.IUserInfoBLL)">
+            <summary>
+            构造注入
+            </summary>
+            <param name="infoBLL"></param>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.UserCenterController.GetInfoAsync(System.Guid)">
+            <summary>
+            获取当前用户信息
+            </summary>
+            <param name="keyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.UserCenterController.Personalization">
+            <summary>
+            个性化
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.UserCenterController.ForgetPassword">
+            <summary>
+            忘记密码
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.UserCenterController.ChangePassword(System.String,C.O.S.E.C.Domain.ViewModels.PasswordModel)">
+            <summary>
+            修改密码
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Controllers.UserCenterController.ChangeInfo">
+            <summary>
+            修改个人信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:C.O.S.E.C.Api.Filters.WebApiResultFilterAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Api.Filters.WebApiResultFilterAttribute.OnResultExecuting(Microsoft.AspNetCore.Mvc.Filters.ResultExecutingContext)">
+            <summary>
+            包装接口返回类型
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:C.O.S.E.C.Api.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Api.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Api.Properties.Resources.Culture">
+            <summary>
+              重写当前线程的 CurrentUICulture 属性
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Api.Properties.Resources.Error_txt_file_type">
+            <summary>
+              查找类似 不支持的文件类型 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Api.Properties.Resources.Error_txt_img_size">
+            <summary>
+              查找类似 图片大小超过2MB限制 的本地化字符串。
+            </summary>
+        </member>
+    </members>
+</doc>

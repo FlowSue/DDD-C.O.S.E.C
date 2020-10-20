@@ -1,16 +1,13 @@
-﻿//系统包
+﻿using C.O.S.E.C.Domain.Enums.Auth;
+using C.O.S.E.C.Domain.InterfaceDrivers.Services;
 using C.O.S.E.C.Infrastructure.Auth.Authorize;
 using C.O.S.E.C.Infrastructure.Auth.Jwt;
 using C.O.S.E.C.Infrastructure.Auth.Operate;
-//微软包
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-//本地项目包
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
@@ -43,8 +40,7 @@ namespace C.O.S.E.C.Infrastructure.Auth.Di
                 //x.DefaultChallengeScheme = OAuthDefaults.DisplayName;
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddCookie()
-            .AddJwtBearer(o =>
+            }).AddJwtBearer(o =>
             {
 
                 o.SaveToken = true;
@@ -54,20 +50,20 @@ namespace C.O.S.E.C.Infrastructure.Auth.Di
                     RoleClaimType = ClaimTypes.Role,
                     ValidIssuer = "C.O.S.E.C",
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtOption.SecurityKey)),
-                    AudienceValidator = (m, n, z) =>
-                    {
-                        return m != null && m.FirstOrDefault().Equals(Helper.CacheHelper.GetCacheValue($"Audience{m.LastOrDefault()}-{n.Id}")?.ToString());
-                    },
+                    //AudienceValidator = (m, n, z) =>
+                    //{
+                    //    return m != null && m.FirstOrDefault().Equals(Helper.CacheHelper.GetCacheValue($"Audience{m.LastOrDefault()}-{n.Id}")?.ToString());
+                    //},
                     /***********************************TokenValidationParameters的参数默认值***********************************/
-                    RequireSignedTokens = true,
-                    RequireExpirationTime = true,
+                    //RequireSignedTokens = true,
+                    //RequireExpirationTime = true,
                     // SaveSigninToken = false,
                     // ValidateActor = false,
-                    ValidateAudience = true,
-                    ValidateIssuer = true,
-                    ValidateIssuerSigningKey = true,
+                    ValidateAudience = false,
+                    //ValidateIssuer = true,
+                    //ValidateIssuerSigningKey = true,
                     //ClockSkew = TimeSpan.FromSeconds(5),// 允许的服务器时间偏移量
-                    ValidateLifetime = true// 是否验证Token有效期，使用当前时间与Token的Claims中的NotBefore和Expires对比
+                    //ValidateLifetime = true// 是否验证Token有效期，使用当前时间与Token的Claims中的NotBefore和Expires对比
                 };
                 o.Events = new JwtBearerEvents
                 {

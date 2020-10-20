@@ -1,4 +1,6 @@
-﻿using C.O.S.E.C.Domain.Models;
+﻿using C.O.S.E.C.Domain.Entity;
+//using C.O.S.E.C.Infrastructure.Treasury.Models;
+using C.O.S.E.C.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 namespace C.O.S.E.C.Domain.InterfaceDrivers
 {
     public interface IBaseBLL { }
-    public interface IBaseBLL<T> : IBaseBLL where T : class, IEntity<T>, new()
+    public interface IBaseBLL<T> : IBaseBLL where T : BaseEntityModel, new()
     {
         List<T> GetList();
         List<T> GetList(Expression<Func<T, bool>> exp);

@@ -1,19 +1,27 @@
 ﻿using C.O.S.E.C.Domain.Enums;
 using C.O.S.E.C.Domain.InterfaceDrivers;
 using C.O.S.E.C.Domain.InterfaceDrivers.Services;
+using C.O.S.E.C.Infrastructure.Treasury.Helpers;
 using System;
+using System.ComponentModel;
 
 namespace C.O.S.E.C.Domain.Entity
 {
     /// <summary>
     /// 客户
     /// </summary>
-    public class Customer : BaseEntityModel,IEntity<Customer>
+    public class Customer : BaseEntityModel, IEntity<Customer>
     {
         /// <summary>
         /// 主键ID
         /// </summary>
         public override Guid ID { get; set; }
+
+        /// <summary>
+        /// 自增ID
+        /// </summary>
+        [DisplayName("雪花")]
+        public long SnowflakeID { get; set; }
 
         /// <summary>
         /// 编码
@@ -99,7 +107,7 @@ namespace C.O.S.E.C.Domain.Entity
         /// 创建时间
         /// </summary>
         public override DateTime CreateTime { get; set; }
-        
+
         /// <summary>
         /// 创建用户ID
         /// </summary>
@@ -141,12 +149,56 @@ namespace C.O.S.E.C.Domain.Entity
         public override string SystemID { get; set; }
 
         /// <summary>
+        /// 统一社会信用代码
+        /// </summary>
+        [DisplayName("统一社会信用代码")]
+        public string Cods { get; set; }
+
+        /// <summary>
+        /// 法人
+        /// </summary>
+        [DisplayName("法人")]
+        public string Legal { get; set; }
+
+        /// <summary>
+        /// 营业执照
+        /// </summary>
+        [DisplayName("营业执照")]
+        public string License { get; set; }
+
+        /// <summary>
+        /// 客户等级
+        /// </summary>
+        [DisplayName("客户等级")]
+        public string Levels { get; set; }
+
+        /// <summary>
+        /// 客户来源
+        /// </summary>
+        [DisplayName("客户来源")]
+        public string Source { get; set; }
+
+        /// <summary>
+        /// 注册资本
+        /// </summary>
+        [DisplayName("注册资本")]
+        public string Capital { get; set; }
+
+        /// <summary>
         /// 新增调用
         /// </summary>
         /// <param name="setter"></param>
         /// <returns></returns>
         public Customer Create(IEntityBaseAutoSetter setter)
         {
+            if (this.ID.IsNullOrEmpty())
+            {
+                ID = Guid.NewGuid();
+            }
+            if (SnowflakeID.IsNullOrEmpty())
+            {
+                SnowflakeID = IdGenerateHelper.NewId;
+            }
             CreateUserID = UpdateUserID = setter.CreateId;
             CreateUserName = UpdateUserName = setter.CreateName;
             CreateTime = UpdateTime = setter.CreateTime;
@@ -154,10 +206,7 @@ namespace C.O.S.E.C.Domain.Entity
             IsEnable = true;
             IsDelete = false;
             Status = StatusState.Normal;
-            if (!setter.SystemId.IsEmpty())
-            {
-                SystemID = setter.SystemId.ToString();
-            }
+            SystemID = setter.SystemId.ToString();
             return this;
         }
 
@@ -172,11 +221,8 @@ namespace C.O.S.E.C.Domain.Entity
             ID = keyValue;
             UpdateUserID = setter.UpdateId;
             UpdateUserName = setter.UpdateName;
-            UpdateTime = setter.UpdateTime; 
-            if (!setter.SystemId.IsEmpty())
-            {
-                SystemID = setter.SystemId.ToString();
-            }
+            UpdateTime = setter.UpdateTime;
+            SystemID = setter.SystemId.ToString();
             return this;
         }
 
@@ -187,7 +233,7 @@ namespace C.O.S.E.C.Domain.Entity
         /// <param name="business"></param>
         public static implicit operator Customer(BusinessPool business)
         {
-            return new Customer()
+            return new Customer
             {
                 EnCode = business.EnCode,
                 FullName = business.FullName,
@@ -203,6 +249,42 @@ namespace C.O.S.E.C.Domain.Entity
                 TraceUserName = business.TraceUserName,
                 Status = business.Status,
                 SystemID = business.SystemID,
+            };
+        }
+        /// <summary>
+        /// 线索转客户
+        /// </summary>
+        /// <param name="clue"></param>
+        public static implicit operator Customer(CluePool clue)
+        {
+            return new Customer
+            {
+                EnCode = clue.EnCode,
+                FullName = clue.FullName,
+                CompanyAddress = clue.CompanyAddress,
+                CompanyNetSite = clue.CompanyNetSite,
+                CustIndustryId = clue.CompanyNatureId,
+                Contact = clue.Contact,
+                Mobile = clue.Mobile,
+                Province = clue.Province,
+                City = clue.City,
+                Description = clue.Description,
+                Status = clue.Status,
+                SystemID = clue.SystemID,
+                Capital = clue.Capital,
+                Cods = clue.Cods,
+                CompanyNatureId = clue.CompanyNatureId,
+                District = clue.District,
+                ID = clue.ID,
+                CreateUserID = clue.CreateUserID,
+                CreateUserName = clue.CreateUserName,
+                IsDelete = clue.IsDelete,
+                IsEnable = clue.IsEnable,
+                IsPublic = clue.IsEnable,
+                Legal = clue.Legal,
+                Levels = clue.Levels,
+                License = clue.License,
+                Source = clue.Source
             };
         }
         #endregion

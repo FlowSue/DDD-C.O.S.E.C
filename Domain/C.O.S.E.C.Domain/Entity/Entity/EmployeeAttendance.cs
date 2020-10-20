@@ -8,7 +8,7 @@ namespace C.O.S.E.C.Domain.Entity
     /// <summary>
     /// 员工考勤
     /// </summary>
-    public class EmployeeAttendance : BaseEntityModel,IEntity<EmployeeAttendance>
+    public class EmployeeAttendance : BaseEntityModel, IEntity<EmployeeAttendance>
     {
         /// <summary>
         /// 主键ID
@@ -89,9 +89,9 @@ namespace C.O.S.E.C.Domain.Entity
         /// <returns></returns>
         public EmployeeAttendance Create(IEntityBaseAutoSetter setter)
         {
-            CreateUserID = setter.CreateId;
-            CreateUserName = setter.CreateName;
-            CreateTime = setter.CreateTime;
+            CreateUserID = UpdateUserID = setter.CreateId;
+            CreateUserName = UpdateUserName = setter.CreateName;
+            CreateTime = UpdateTime = setter.CreateTime;
             IsEnable = true;
             IsDelete = false;
             Status = StatusState.Normal;
@@ -101,7 +101,7 @@ namespace C.O.S.E.C.Domain.Entity
             }
             return this;
         }
-        
+
         /// <summary>
         /// 更新调用
         /// </summary>

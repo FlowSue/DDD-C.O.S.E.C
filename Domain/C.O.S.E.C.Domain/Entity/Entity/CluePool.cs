@@ -151,6 +151,42 @@ namespace C.O.S.E.C.Domain.Entity
         public override string SystemID { get; set; }
 
         /// <summary>
+        /// 统一社会信用代码
+        /// </summary>
+        [DisplayName("统一社会信用代码")]
+        public string Cods { get; set; }
+
+        /// <summary>
+        /// 法人
+        /// </summary>
+        [DisplayName("法人")]
+        public string Legal { get; set; }
+
+        /// <summary>
+        /// 营业执照
+        /// </summary>
+        [DisplayName("营业执照")]
+        public string License { get; set; }
+
+        /// <summary>
+        /// 客户等级
+        /// </summary>
+        [DisplayName("客户等级")]
+        public string Levels { get; set; }
+
+        /// <summary>
+        /// 客户来源
+        /// </summary>
+        [DisplayName("客户来源")]
+        public string Source { get; set; }
+
+        /// <summary>
+        /// 注册资本
+        /// </summary>
+        [DisplayName("注册资本")]
+        public string Capital { get; set; }
+
+        /// <summary>
         /// 新增调用
         /// </summary>
         /// <param name="setter"></param>
@@ -158,9 +194,9 @@ namespace C.O.S.E.C.Domain.Entity
         public CluePool Create(IEntityBaseAutoSetter setter)
         {
             SnowflakeID = IdGenerateHelper.NewId;
-            CreateUserID = setter.CreateId;
-            CreateUserName = setter.CreateName;
-            CreateTime = setter.CreateTime;
+            CreateUserID = UpdateUserID = setter.CreateId;
+            CreateUserName = UpdateUserName = setter.CreateName;
+            CreateTime = UpdateTime = setter.CreateTime;
             IsEnable = true;
             IsDelete = false;
             Status = StatusState.Normal;

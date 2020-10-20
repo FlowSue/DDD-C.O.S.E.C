@@ -1,4 +1,7 @@
-﻿namespace C.O.S.E.C.Domain.Enums
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
+namespace C.O.S.E.C.Domain.Enums
 {
     /// <summary>
     /// 数据状态

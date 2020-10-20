@@ -1,0 +1,18 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "layui@2.5.6",
+      "destination": "wwwroot/lib/layui/"
+    },
+    {
+      "library": "signalr.js@2.4.1",
+      "destination": "wwwroot/lib/signalr.js/"
+    },
+    {
+      "library": "jquery-cookie@1.4.1",
+      "destination": "wwwroot/lib/jquery-cookie/"
+    }
+  ]
+}

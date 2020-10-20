@@ -48,7 +48,7 @@ namespace C.O.S.E.C.Infrastructure.Swagger.DI
                 opt.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
                 opt.OperationFilter<SecurityRequirementsOperationFilter>();
                 //给api添加token令牌证书
-                opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                opt.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
                 {
                     Description = "JWT授权(数据将在请求头中进行传输) 直接在下框中输入Bearer {token}（注意两者之间是一个空格）\"",
                     Name = "Authorization",//jwt默认的参数名称

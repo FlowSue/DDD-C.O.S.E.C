@@ -1,14 +1,9 @@
-﻿//系统包
-using System;
+﻿using C.O.S.E.C.Domain.Models;
+using C.O.S.E.C.Infrastructure.Auth.Jwt;
+using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
-//微软包
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
-//本地项目包
-using C.O.S.E.C.Infrastructure.Auth.Jwt;
-using C.O.S.E.C.Infrastructure.Auth.Models;
 
 namespace C.O.S.E.C.Infrastructure.Auth.Authorize
 {

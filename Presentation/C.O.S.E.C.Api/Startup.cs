@@ -1,16 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Autofac;
+using C.O.S.E.C.Api.Hubs;
 using C.O.S.E.C.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
 
 namespace C.O.S.E.C.Api
 {
@@ -23,11 +21,13 @@ namespace C.O.S.E.C.Api
         }
 
         public IConfiguration Configuration { get; }
+        public IContainer Container { get; private set; }
         public IWebHostEnvironment env { get; }
-        //public IContainer Container { get; private set; }
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddInfrastructureService(env, Configuration);
+
             services.AddControllers(configure =>
             {
                 configure.Filters.Add<Filters.WebApiResultFilterAttribute>();
@@ -38,11 +38,9 @@ namespace C.O.S.E.C.Api
             //    opt.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver();
             //});
 
-            services.AddInfrastructureService(env, Configuration);
 
             //注册http上下文访问器
             services.AddHttpContextAccessor();
-            //services.AddSingleton<Microsoft.AspNetCore.Http.IHttpContextAccessor, Microsoft.AspNetCore.Http.HttpContextAccessor>();
 
             // 添加Signalr
             services.AddSignalR(config =>
@@ -53,7 +51,7 @@ namespace C.O.S.E.C.Api
                 }
             });
         }
-
+        public static void ConfigureContainer(ContainerBuilder builder) => builder.RegisterModule(new Models.AutofacModule());
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -78,6 +76,7 @@ namespace C.O.S.E.C.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<ChatHub>("/notify-hub");
             });
         }
     }

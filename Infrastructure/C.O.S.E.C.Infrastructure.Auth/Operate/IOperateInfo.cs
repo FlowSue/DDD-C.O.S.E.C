@@ -1,5 +1,6 @@
 ﻿//本地项目包
-using C.O.S.E.C.Infrastructure.Auth.Models;
+
+using C.O.S.E.C.Domain.Models;
 
 namespace C.O.S.E.C.Infrastructure.Auth.Operate
 {

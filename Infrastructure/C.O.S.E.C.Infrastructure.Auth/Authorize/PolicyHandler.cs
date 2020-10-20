@@ -1,17 +1,15 @@
 ﻿//系统包
-using System.Linq;
-using System.Threading.Tasks;
 //微软包
+using C.O.S.E.C.Domain.Enums.Auth;
+using C.O.S.E.C.Domain.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Http;
 //三方包
 using Newtonsoft.Json;
+using System.Linq;
+using System.Threading.Tasks;
 //本地项目包
-using C.O.S.E.C.Infrastructure.Auth.Enums;
-using C.O.S.E.C.Infrastructure.Auth.Models;
-using System.Security.Claims;
 
 namespace C.O.S.E.C.Infrastructure.Auth.Authorize
 {
@@ -69,6 +67,7 @@ namespace C.O.S.E.C.Infrastructure.Auth.Authorize
             AuthenticateResult result = await httpContext.AuthenticateAsync(defaultAuthenticate.Name);
             if (!result.Succeeded)
             {
+                System.Console.WriteLine(result.Failure);
                 context.Fail();
                 return;
             }
@@ -77,7 +76,7 @@ namespace C.O.S.E.C.Infrastructure.Auth.Authorize
 
             //判断角色
             string url = httpContext.Request.Path.Value.ToLower();
-            string tokenModelJsonStr = httpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypeEnum.TokenModel.ToString())?.Value;
+            string tokenModelJsonStr = httpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimEnum.TokenModel.ToString())?.Value;
             TokenModel tm = JsonConvert.DeserializeObject<TokenModel>(tokenModelJsonStr);
 
             if (!requirement.GetRequireRoles().Contains(tm.Role))

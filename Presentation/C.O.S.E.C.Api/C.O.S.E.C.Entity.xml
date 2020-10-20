@@ -1,0 +1,2453 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>C.O.S.E.C.Domain</name>
+    </assembly>
+    <members>
+        <member name="T:C.O.S.E.C.Infrastructure.Auth.Attributes.AuthorizeAttribute">
+            <summary>
+            自定义授权特性
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BaseEntityModel.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BaseEntityModel.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BaseEntityModel.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BaseEntityModel.CreateUserID">
+            <summary>
+            创建人ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BaseEntityModel.CreateUserName">
+            <summary>
+            创建人名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BaseEntityModel.UpdateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BaseEntityModel.UpdateUserID">
+            <summary>
+            创建人ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BaseEntityModel.UpdateUserName">
+            <summary>
+            创建人名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BaseEntityModel.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BaseEntityModel.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BaseEntityModel.SystemID">
+            <summary>
+            系统标识符
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Entity.BusinessPool">
+            <summary>
+            商机池
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BusinessPool.ID">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BusinessPool.EnCode">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BusinessPool.FullName">
+            <summary>
+            全称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BusinessPool.CompanyAddress">
+            <summary>
+            公司地址
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BusinessPool.CompanyNetSite">
+            <summary>
+            公司站点
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BusinessPool.CompanyNatureId">
+            <summary>
+            公司性质
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BusinessPool.Contact">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BusinessPool.Mobile">
+            <summary>
+            移动电话
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BusinessPool.Province">
+            <summary>
+            省
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BusinessPool.City">
+            <summary>
+            市
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BusinessPool.District">
+            <summary>
+            区
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BusinessPool.Description">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BusinessPool.TraceUserID">
+            <summary>
+            跟进用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BusinessPool.TraceUserName">
+            <summary>
+            跟进用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BusinessPool.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BusinessPool.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BusinessPool.CreateUserID">
+            <summary>
+            创建用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BusinessPool.CreateUserName">
+            <summary>
+            创建用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BusinessPool.UpdateTime">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BusinessPool.UpdateUserID">
+            <summary>
+            更新用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BusinessPool.UpdateUserName">
+            <summary>
+            更新用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BusinessPool.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BusinessPool.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.BusinessPool.SystemID">
+            <summary>
+            系统标识
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.BusinessPool.Create(C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            新增调用
+            </summary>
+            <param name="setter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.BusinessPool.Modify(System.Guid,C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            更新调用
+            </summary>
+            <param name="keyValue"></param>
+            <param name="setter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.BusinessPool.op_Implicit(C.O.S.E.C.Domain.Entity.CluePool)~C.O.S.E.C.Domain.Entity.BusinessPool">
+            <summary>
+            线索转商机
+            </summary>
+            <param name="clue"></param>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Entity.CluePool">
+            <summary>
+            线索池
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.ID">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.SnowflakeID">
+            <summary>
+            自增ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.EnCode">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.FullName">
+            <summary>
+            全称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.CompanyAddress">
+            <summary>
+            公司地址
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.CompanyNetSite">
+            <summary>
+            公司站点
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.CompanyNatureId">
+            <summary>
+            公司性质
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.Contact">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.Mobile">
+            <summary>
+            移动电话
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.Province">
+            <summary>
+            省
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.City">
+            <summary>
+            市
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.District">
+            <summary>
+            区
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.Description">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.CreateUserID">
+            <summary>
+            创建用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.CreateUserName">
+            <summary>
+            创建用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.UpdateTime">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.UpdateUserID">
+            <summary>
+            更新用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.UpdateUserName">
+            <summary>
+            更新用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.SystemID">
+            <summary>
+            系统标识
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.Cods">
+            <summary>
+            统一社会信用代码
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.Legal">
+            <summary>
+            法人
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.License">
+            <summary>
+            营业执照
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.Levels">
+            <summary>
+            客户等级
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.Source">
+            <summary>
+            客户来源
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CluePool.Capital">
+            <summary>
+            注册资本
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.CluePool.Create(C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            新增调用
+            </summary>
+            <param name="setter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.CluePool.Modify(System.Guid,C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            更新调用
+            </summary>
+            <param name="keyValue"></param>
+            <param name="setter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Entity.Customer">
+            <summary>
+            客户
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.ID">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.SnowflakeID">
+            <summary>
+            自增ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.EnCode">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.FullName">
+            <summary>
+            全称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.CompanyAddress">
+            <summary>
+            公司地址
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.CompanyNetSite">
+            <summary>
+            公司站点
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.CompanyNatureId">
+            <summary>
+            公司性质
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.CustIndustryId">
+            <summary>
+            客户行业
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.Contact">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.Mobile">
+            <summary>
+            移动电话
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.Province">
+            <summary>
+            省
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.City">
+            <summary>
+            市
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.District">
+            <summary>
+            区
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.Description">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.TraceUserID">
+            <summary>
+            跟进人员ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.TraceUserName">
+            <summary>
+            跟进人员名字
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.IsPublic">
+            <summary>
+            是否公共
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.CreateUserID">
+            <summary>
+            创建用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.CreateUserName">
+            <summary>
+            创建用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.UpdateTime">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.UpdateUserID">
+            <summary>
+            更新用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.UpdateUserName">
+            <summary>
+            更新用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.SystemID">
+            <summary>
+            系统标识
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.Cods">
+            <summary>
+            统一社会信用代码
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.Legal">
+            <summary>
+            法人
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.License">
+            <summary>
+            营业执照
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.Levels">
+            <summary>
+            客户等级
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.Source">
+            <summary>
+            客户来源
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Customer.Capital">
+            <summary>
+            注册资本
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.Customer.Create(C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            新增调用
+            </summary>
+            <param name="setter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.Customer.Modify(System.Guid,C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            更新调用
+            </summary>
+            <param name="keyValue"></param>
+            <param name="setter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.Customer.op_Implicit(C.O.S.E.C.Domain.Entity.BusinessPool)~C.O.S.E.C.Domain.Entity.Customer">
+            <summary>
+            商机转客户
+            </summary>
+            <param name="business"></param>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.Customer.op_Implicit(C.O.S.E.C.Domain.Entity.CluePool)~C.O.S.E.C.Domain.Entity.Customer">
+            <summary>
+            线索转客户
+            </summary>
+            <param name="clue"></param>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Entity.CustomerTrailRecord">
+            <summary>
+            跟进记录
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CustomerTrailRecord.ID">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CustomerTrailRecord.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CustomerTrailRecord.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CustomerTrailRecord.CreateUserID">
+            <summary>
+            创建用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CustomerTrailRecord.CreateUserName">
+            <summary>
+            创建用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CustomerTrailRecord.UpdateTime">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CustomerTrailRecord.UpdateUserID">
+            <summary>
+            更新用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CustomerTrailRecord.UpdateUserName">
+            <summary>
+            更新用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CustomerTrailRecord.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CustomerTrailRecord.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CustomerTrailRecord.SystemID">
+            <summary>
+            系统标识
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CustomerTrailRecord.BusinessPoolID">
+            <summary>
+            商机ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CustomerTrailRecord.TrackContent">
+            <summary>
+            跟进内容
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CustomerTrailRecord.Contacts">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CustomerTrailRecord.DayDate">
+            <summary>
+            跟进时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CustomerTrailRecord.Description">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CustomerTrailRecord.TrackTypeId">
+            <summary>
+            跟进类型
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.CustomerTrailRecord.CompanyName">
+            <summary>
+            公司名称
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.CustomerTrailRecord.Create(C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            新增调用
+            </summary>
+            <param name="setter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.CustomerTrailRecord.Modify(System.Guid,C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            更新调用
+            </summary>
+            <param name="keyValue"></param>
+            <param name="setter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Entity.EmployeeAttendance">
+            <summary>
+            员工考勤
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeAttendance.ID">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeAttendance.UserInfoId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeAttendance.OrganizeID">
+            <summary>
+            所属组织
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeAttendance.DepartmentID">
+            <summary>
+            所属部门
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeAttendance.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeAttendance.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeAttendance.CreateUserID">
+            <summary>
+            创建用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeAttendance.CreateUserName">
+            <summary>
+            创建用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeAttendance.UpdateTime">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeAttendance.UpdateUserID">
+            <summary>
+            更新用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeAttendance.UpdateUserName">
+            <summary>
+            更新用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeAttendance.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeAttendance.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeAttendance.SystemID">
+            <summary>
+            系统标识
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.EmployeeAttendance.Create(C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            新增调用
+            </summary>
+            <param name="setter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.EmployeeAttendance.Modify(System.Guid,C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            更新调用
+            </summary>
+            <param name="keyValue"></param>
+            <param name="setter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Entity.EmployeeWorkLog">
+            <summary>
+            工作日志
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeWorkLog.ID">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeWorkLog.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeWorkLog.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeWorkLog.CreateUserID">
+            <summary>
+            创建用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeWorkLog.CreateUserName">
+            <summary>
+            创建用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeWorkLog.UpdateTime">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeWorkLog.UpdateUserID">
+            <summary>
+            更新用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeWorkLog.UpdateUserName">
+            <summary>
+            更新用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeWorkLog.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeWorkLog.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeWorkLog.SystemID">
+            <summary>
+            系统标识
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.EmployeeWorkLog.Create(C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            新增调用
+            </summary>
+            <param name="setter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.EmployeeWorkLog.Modify(System.Guid,C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            更新调用
+            </summary>
+            <param name="keyValue"></param>
+            <param name="setter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Entity.EmployeeWorkPlan">
+            <summary>
+            工作计划
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeWorkPlan.ID">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeWorkPlan.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeWorkPlan.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeWorkPlan.CreateUserID">
+            <summary>
+            创建用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeWorkPlan.CreateUserName">
+            <summary>
+            创建用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeWorkPlan.UpdateTime">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeWorkPlan.UpdateUserID">
+            <summary>
+            更新用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeWorkPlan.UpdateUserName">
+            <summary>
+            更新用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeWorkPlan.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeWorkPlan.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.EmployeeWorkPlan.SystemID">
+            <summary>
+            系统标识
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.EmployeeWorkPlan.Create(C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            新增调用
+            </summary>
+            <param name="setter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.EmployeeWorkPlan.Modify(System.Guid,C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            更新调用
+            </summary>
+            <param name="keyValue"></param>
+            <param name="setter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Entity.SystemModule">
+            <summary>
+            系统功能
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemModule.ID">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemModule.ModuleName">
+            <summary>
+            功能名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemModule.Icon">
+            <summary>
+            功能图标
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemModule.ParentID">
+            <summary>
+            父级
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemModule.UrlAddress">
+            <summary>
+            功能URL
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemModule.IsExpand">
+            <summary>
+            是否展开
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemModule.IsPublic">
+            <summary>
+            是否公共
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemModule.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemModule.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemModule.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemModule.CreateUserID">
+            <summary>
+            创建用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemModule.CreateUserName">
+            <summary>
+            创建用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemModule.UpdateTime">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemModule.UpdateUserID">
+            <summary>
+            更新用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemModule.UpdateUserName">
+            <summary>
+            更新用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemModule.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemModule.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemModule.SystemID">
+            <summary>
+            系统标识
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.SystemModule.Create(C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            新增调用
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.SystemModule.Modify(System.Guid,C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            更新调用
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Entity.SystemOrder">
+            <summary>
+            系统订单
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.ID">
+            <summary>
+            系统ID（SystemID）
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.ClientName">
+            <summary>
+            客户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.ExpiryTime">
+            <summary>
+            到期时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.CustomerId">
+            <summary>
+            客户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.IsCustomize">
+            <summary>
+            是否定制
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.CustomizeController">
+            <summary>
+            定制控制器
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.StyleTemplate">
+            <summary>
+            前台样式
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.ModuleCategoryId">
+            <summary>
+            基础功能
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.OrderId">
+            <summary>
+            对应的订单编号
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.CustomizeUserId">
+            <summary>
+            定制工程师
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.CustomizeTotalMoney">
+            <summary>
+            定制价格
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.CustomizeDescription">
+            <summary>
+            定制描述
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.BaseTotalMoney">
+            <summary>
+            基础价格
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.RenewTotalMoney">
+            <summary>
+            次年续费价格
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.TotalMoney">
+            <summary>
+            总价
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.ContractId">
+            <summary>
+            合同ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.InitAccount">
+            <summary>
+            初始账号
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.InitPassWord">
+            <summary>
+            初始密码
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.InitEncryptPassWord">
+            <summary>
+            初始密码
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.SystemPassWord">
+            <summary>
+            Api服务密码
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.CreateUserID">
+            <summary>
+            创建用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.CreateUserName">
+            <summary>
+            创建用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.UpdateTime">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.UpdateUserID">
+            <summary>
+            更新用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.UpdateUserName">
+            <summary>
+            更新用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemOrder.SystemID">
+            <summary>
+            系统标识
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.SystemOrder.Create(C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            新增调用
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.SystemOrder.Modify(System.Guid,C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            更新调用
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Entity.SystemSetting">
+            <summary>
+            系统设置
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemSetting.ID">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemSetting.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemSetting.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemSetting.CreateUserID">
+            <summary>
+            创建用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemSetting.CreateUserName">
+            <summary>
+            创建用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemSetting.UpdateTime">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemSetting.UpdateUserID">
+            <summary>
+            更新用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemSetting.UpdateUserName">
+            <summary>
+            更新用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemSetting.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemSetting.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.SystemSetting.SystemID">
+            <summary>
+            系统标识
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.SystemSetting.Create(C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            新增调用
+            </summary>
+            <param name="setter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.SystemSetting.Modify(System.Guid,C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            更新调用
+            </summary>
+            <param name="keyValue"></param>
+            <param name="setter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Entity.UserFile">
+            <summary>
+            用户文件
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserFile.ID">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserFile.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserFile.FileExt">
+            <summary>
+            文件扩展名
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserFile.FilePath">
+            <summary>
+            文件路径
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserFile.FormerName">
+            <summary>
+            文件原名
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserFile.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserFile.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserFile.CreateUserID">
+            <summary>
+            创建用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserFile.CreateUserName">
+            <summary>
+            创建用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserFile.UpdateTime">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserFile.UpdateUserID">
+            <summary>
+            更新用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserFile.UpdateUserName">
+            <summary>
+            更新用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserFile.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserFile.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserFile.SystemID">
+            <summary>
+            系统标识
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.UserFile.Create(C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            新增调用
+            </summary>
+            <param name="setter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.UserFile.Modify(System.Guid,C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            更新调用
+            </summary>
+            <param name="keyValue"></param>
+            <param name="setter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Entity.UserInfo">
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.ID">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.Account">
+            <summary>
+            账户
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.EnCode">
+            <summary>
+            编号
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.NickName">
+            <summary>
+            昵称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.RealName">
+            <summary>
+            真实姓名
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.Avatar">
+            <summary>
+            头像
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.WeChat">
+            <summary>
+            微信
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.QQ">
+            <summary>
+            QQ
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.WeiXinFromOpenID">
+            <summary>
+            微信OpenID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.OrganizeID">
+            <summary>
+            所属组织
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.DepartmentID">
+            <summary>
+            所属部门
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.Province">
+            <summary>
+            省
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.City">
+            <summary>
+            市
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.District">
+            <summary>
+            区
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.Address">
+            <summary>
+            详细地址
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.Birthday">
+            <summary>
+            生日
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.Gender">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.Mobile">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.Role">
+            <summary>
+            角色身份
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.IsAdmin">
+            <summary>
+            是否是超管
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.CreateUserID">
+            <summary>
+            创建用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.CreateUserName">
+            <summary>
+            创建用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.UpdateTime">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.UpdateUserID">
+            <summary>
+            更新用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.UpdateUserName">
+            <summary>
+            更新用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.SystemID">
+            <summary>
+            系统标识
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.UserInfo.Create(C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            新增调用
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.UserInfo.Modify(System.Guid,C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            更新调用
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.LoginMsg">
+            <summary>
+            登录信息
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.LoginOk">
+            <summary>
+            登录状态
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.UserInfo.Token">
+            <summary>
+            令牌
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Entity._SystemActionLog">
+            <summary>
+            系统访问日志
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity._SystemActionLog.ActionPath">
+            <summary>
+            调用API地址
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity._SystemActionLog.RequestIP">
+            <summary>
+            请求者IP
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity._SystemActionLog.ControllerName">
+            <summary>
+            访问控制器
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity._SystemActionLog.ActionName">
+            <summary>
+            执行动作
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity._SystemActionLog.Description">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity._SystemActionLog.ID">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity._SystemActionLog.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity._SystemActionLog.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity._SystemActionLog.CreateUserID">
+            <summary>
+            创建用户ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity._SystemActionLog.CreateUserName">
+            <summary>
+            创建用户名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity._SystemActionLog.UpdateTime">
+            <summary></summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity._SystemActionLog.UpdateUserID">
+            <summary></summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity._SystemActionLog.UpdateUserName">
+            <summary></summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity._SystemActionLog.IsDelete">
+            <summary></summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity._SystemActionLog.Status">
+            <summary></summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity._SystemActionLog.SystemID">
+            <summary>
+            系统标识
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity._SystemActionLog.Create(C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            新增调用
+            </summary>
+            <param name="setter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity._SystemActionLog.Modify(System.Guid,C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            更新调用
+            </summary>
+            <param name="keyValue"></param>
+            <param name="setter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers">
+            <summary>
+            成交客户（内部）
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.ID">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.EnCode">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.FullName">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.Contact">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.Mobile">
+            <summary>
+            联系电话
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.Industry">
+            <summary>
+            行业
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.ClientType">
+            <summary>
+            状态类型 0：成交客户，1：售后
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.Description">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.Buyproduct">
+            <summary>
+            购买产品
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.SigningTime">
+            <summary>
+            签单时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.Localsite">
+            <summary>
+            局域站点
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.Globalsite">
+            <summary>
+            全局站点
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.Renewaldue">
+            <summary>
+            续费到期
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.ImplementationTime">
+            <summary>
+            产品实施
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.TechnologyTime">
+            <summary>
+            售后技术
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.ChargeMethod">
+            <summary>
+            收费方式
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.ServiceExpired">
+            <summary>
+            服务到期
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.ProductDelivery">
+            <summary>
+            产品交付
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.Engineer">
+            <summary>
+            工程师
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.ContractAmount">
+            <summary>
+            合同金额
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.ServicePack">
+            <summary>
+            续年服务包
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.CreateUserID">
+            <summary>
+            操作员ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.CreateUserName">
+            <summary>
+            操作员
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.CreateTime">
+            <summary>
+            录入时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.UpdateUserID">
+            <summary>
+            操作员ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.UpdateUserName">
+            <summary>
+            操作员
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.UpdateTime">
+            <summary>
+            录入时间
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.Create(C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            新增调用
+            </summary>
+            <param name="setter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.Internal.InternalCustomers.Modify(System.Int32,C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            更新调用
+            </summary>
+            <param name="keyValue"></param>
+            <param name="setter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Entity.Internal.TargetCustomers">
+            <summary>
+            目标客户（内部）
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.TargetCustomers.ID">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.TargetCustomers.EnCode">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.TargetCustomers.FullName">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.TargetCustomers.Contact">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.TargetCustomers.Mobile">
+            <summary>
+            联系电话
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.TargetCustomers.ClientType">
+            <summary>
+            状态类型 0：目标客户，1：商机客户，-1：成交客户
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.TargetCustomers.Industry">
+            <summary>
+            行业
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.TargetCustomers.Description">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.TargetCustomers.Recommended">
+            <summary>
+            推荐产品
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.TargetCustomers.VisitTime">
+            <summary>
+            拜访时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.TargetCustomers.VisitUser">
+            <summary>
+            拜访人
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.TargetCustomers.Money">
+            <summary>
+            产品金额
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.TargetCustomers.ExpectedTime">
+            <summary>
+            预计成交时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.TargetCustomers.CreateUserID">
+            <summary>
+            操作员ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.TargetCustomers.CreateUserName">
+            <summary>
+            操作员
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.TargetCustomers.CreateTime">
+            <summary>
+            录入时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.TargetCustomers.UpdateUserID">
+            <summary>
+            操作员ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.TargetCustomers.UpdateUserName">
+            <summary>
+            操作员
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.TargetCustomers.UpdateTime">
+            <summary>
+            录入时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Entity.Internal.TargetCustomers.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.Internal.TargetCustomers.Create(C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            新增调用
+            </summary>
+            <param name="setter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Entity.Internal.TargetCustomers.Modify(System.Int32,C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            更新调用
+            </summary>
+            <param name="keyValue"></param>
+            <param name="setter"></param>
+            <returns></returns>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Enums.Auth.AuthPolicyEnum">
+            <summary>
+            授权策略模式枚举
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.Auth.AuthPolicyEnum.Free">
+            <summary>
+            开放接口，不需要授权
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.Auth.AuthPolicyEnum.RequireRoleOfClient">
+            <summary>
+            仅对客户端用户开放
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.Auth.AuthPolicyEnum.RequireRoleOfAdmin">
+            <summary>
+            仅对后台用户开放
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.Auth.AuthPolicyEnum.RequireRoleOfAdminOrClient">
+            <summary>
+            仅对客户端或后台用户开放
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.Auth.AuthPolicyEnum.RequireRoleOfSystemAdmin">
+            <summary>
+            仅对系统管理员开放
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Enums.Auth.ClaimEnum">
+            <summary>
+            Claim声明类型名称枚举
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Enums.Auth.TokenTypeEnum">
+            <summary>
+            终端类型枚举
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.Auth.TokenTypeEnum.Web">
+            <summary>
+            网页终端
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.Auth.TokenTypeEnum.App">
+            <summary>
+            移动终端
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.Auth.TokenTypeEnum.MiniProgram">
+            <summary>
+            小程序终端
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.Auth.TokenTypeEnum.Other">
+            <summary>
+            其他类型终端
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Enums.CorsPolicyEnum">
+            <summary>
+            跨域策略模式枚举
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.CorsPolicyEnum.Free">
+            <summary>
+            自由
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.CorsPolicyEnum.Limit">
+            <summary>
+            限制
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Enums.ResponseCode">
+            <summary>
+            HTTP状态响应码
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.ResponseCode.OK">
+            <summary>
+            请求成功
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.ResponseCode.Created">
+            <summary>
+            该请求已成功，并因此创建了一个新的资源。
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.ResponseCode.Accepted">
+            <summary>
+            还未响应，没有结果。
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.ResponseCode.NoContent">
+            <summary>
+            不需要返回任何实体内容
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.ResponseCode.BadRequest">
+            <summary>
+            参数错误
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.ResponseCode.Forbidden">
+            <summary>
+            拒绝或者禁止访问（无权限访问）
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.ResponseCode.NotFound">
+            <summary>
+            未找到资源
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.ResponseCode.MethodNotAllowed">
+            <summary>
+            请求方式错误
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.ResponseCode.ServerError">
+            <summary>
+            服务器异常
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.ResponseCode.BadGateway">
+            <summary>
+            请求超时
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.ResponseCode.ServiceUnavailable">
+            <summary>
+            服务器维护或停机
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Enums.SortEnum">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.SortEnum.Asc">
+            <summary>升序</summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.SortEnum.Desc">
+            <summary>降序</summary>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Enums.StatusState">
+            <summary>
+            数据状态
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.StatusState.Invalid">
+            <summary>
+            失效
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.StatusState.Normal">
+            <summary>
+            正常
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.StatusState.Abnormal">
+            <summary>
+            状态异常
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Enums.UserRolesEnum">
+            <summary>
+            用户角色
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.UserRolesEnum.Client">
+            <summary>
+            前台用户
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.UserRolesEnum.Admin">
+            <summary>
+            后台用户
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Enums.UserRolesEnum.SystemAdmin">
+            <summary>
+            系统管理员
+            </summary>
+        </member>
+        <member name="F:C.O.S.E.C.Domain.Factory.DbContext`1._disposed">
+            <summary>
+            获取或设置一个值。该值指示资源已经被释放。
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Factory.DbContext`1.GetList">
+            <summary>
+            获取所有
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Factory.DbContext`1.Delete(System.Object)">
+            <summary>
+            根据主键删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Factory.DbContext`1.Update(`0)">
+            <summary>
+            更新
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Factory.DbContext`1.Dispose(System.Boolean)">
+            <summary>
+            执行与释放或重置非托管资源相关的应用程序定义的任务。
+            派生类中重写此方法时，需要释放派生类中额外使用的资源。
+            </summary> 
+        </member>
+        <member name="T:C.O.S.E.C.Domain.InterfaceDrivers.IEntity`1">
+            <summary>
+            实体通用接口
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.InterfaceDrivers.IEntity`1.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.InterfaceDrivers.IEntity`1.IsEnable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.InterfaceDrivers.IEntity`1.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.InterfaceDrivers.IEntity`1.CreateUserID">
+            <summary>
+            创建人ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.InterfaceDrivers.IEntity`1.CreateUserName">
+            <summary>
+            创建人名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.InterfaceDrivers.IEntity`1.UpdateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.InterfaceDrivers.IEntity`1.UpdateUserID">
+            <summary>
+            创建人ID
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.InterfaceDrivers.IEntity`1.UpdateUserName">
+            <summary>
+            创建人名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.InterfaceDrivers.IEntity`1.IsDelete">
+            <summary>
+            是否删除
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.InterfaceDrivers.IEntity`1.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.InterfaceDrivers.IEntity`1.SystemID">
+            <summary>
+            系统标识符
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.InterfaceDrivers.IEntity`1.Create(C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            新增调用
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.InterfaceDrivers.IEntity`1.Modify(System.Guid,C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter)">
+            <summary>
+            编辑调用
+            </summary>
+            <param name="keyValue">主键值</param>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter">
+            <summary>
+            实体库自动设置器
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter.CreateName">
+            <summary>创建人姓名</summary>
+            <value>The name of the create.</value>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter.CreateId">
+            <summary>创建人Id</summary>
+            <value>The create identifier.</value>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter.CreateTime">
+            <summary>创建时间</summary>
+            <value>The create time.</value>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter.UpdateName">
+            <summary>更新人姓名</summary>
+            <value>The name of the update.</value>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter.UpdateId">
+            <summary>更新人Id</summary>
+            <value>The update identifier.</value>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter.UpdateTime">
+            <summary>更新时间</summary>
+            <value>The update time.</value>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter.TokenStr">
+            <summary>jwt token</summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter.SystemId">
+            <summary>系统ID</summary>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.InterfaceDrivers.Services.IOperateInfo">
+            <summary>
+            操作人信息
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.InterfaceDrivers.Services.IOperateInfo.TokenModel">
+            <summary>登录人信息</summary>
+            <value>The authentication base.</value>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.InterfaceDrivers.Services.IOperateInfo.TokenStr">
+            <summary>登录token</summary>
+            <value>The token.</value>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Models.Pagination">
+            <summary>
+            分页
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Models.Pagination.Rows">
+            <summary>
+            每页行数 (最大100)
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Models.Pagination.Page">
+            <summary>
+            当前页
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Models.Pagination.Sidx">
+            <summary>
+            排序列
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Models.Pagination.Sord">
+            <summary>
+            排序类型
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Models.Pagination.Records">
+            <summary>
+            总记录数
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Models.Pagination.Total">
+            <summary>
+            总页数
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Models.PagingResult`1">
+            <summary>
+            分页结果
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.Models.PagingResult`1.#ctor(C.O.S.E.C.Domain.Models.Pagination)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="pagination"></param>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Models.PagingResult`1.Pagination">
+            <summary>
+            分页信息
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Models.PagingResult`1.Data">
+            <summary>
+            数据
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Models.ResponseObject">
+            <summary>
+            响应数据
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Models.ResponseObject.Code">
+            <summary>
+            接口响应码
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Models.ResponseObject.Info">
+            <summary>
+            接口响应消息
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Models.ResponseObject.Data">
+            <summary>
+            接口响应数据
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Models.ResponseObject`1">
+            <summary>
+            响应数据
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Models.ResponseObject`1.Code">
+            <summary>
+            接口响应码
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Models.ResponseObject`1.Info">
+            <summary>
+            接口响应消息
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Models.ResponseObject`1.Data">
+            <summary>
+            接口响应数据
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.Models.TokenModel">
+            <summary>
+            Token实体
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Models.TokenModel.Uid">
+            <summary>
+            登录用户Id
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Models.TokenModel.Uname">
+            <summary>
+            登录用户名
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Models.TokenModel.Rname">
+            <summary>
+            真实姓名
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Models.TokenModel.Role">
+            <summary>
+            身份
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Models.TokenModel.Project">
+            <summary>
+            项目名称
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Models.TokenModel.SystemId">
+            <summary>
+            系统标识
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.Models.TokenModel.TokenType">
+            <summary>
+            令牌类型（终端类型）
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.ViewModels.LoginEntity">
+            <summary>
+            登录用实体
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.ViewModels.LoginEntity.Username">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.ViewModels.LoginEntity.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.ViewModels.LoginEntity.OS">
+            <summary>
+            系统
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.ViewModels.PasswordModel">
+            <summary>
+            密码保存实体类
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.ViewModels.PasswordModel.Password">
+            <summary>
+            获得/设置 原密码
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.ViewModels.PasswordModel.NewPassword">
+            <summary>
+            获得/设置 新密码
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.ViewModels.PasswordModel.ConfirmPassword">
+            <summary>
+            获得/设置 确认密码
+            </summary>
+        </member>
+        <member name="P:C.O.S.E.C.Domain.ViewModels.TokenEntity.Token">
+            <summary>
+            token令牌
+            </summary>
+        </member>
+    </members>
+</doc>

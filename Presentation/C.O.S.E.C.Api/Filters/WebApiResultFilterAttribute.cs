@@ -1,14 +1,16 @@
-﻿using C.O.S.E.C.Infrastructure.Treasury.Enums;
-using C.O.S.E.C.Infrastructure.Treasury.Models;
+﻿using C.O.S.E.C.Domain.Enums;
+using C.O.S.E.C.Domain.InterfaceDrivers.Services;
+using C.O.S.E.C.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace C.O.S.E.C.Api.Filters
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public sealed class WebApiResultFilterAttribute : ActionFilterAttribute
     {
         public WebApiResultFilterAttribute()
@@ -34,7 +36,7 @@ namespace C.O.S.E.C.Api.Filters
             {
                 if (!context.ActionDescriptor.RouteValues["controller"].Contains("Test", StringComparison.CurrentCulture))
                 {
-                    var info = (context.HttpContext.RequestServices.GetService(typeof(Infrastructure.Auth.Operate.IOperateInfo)) as Infrastructure.Auth.Operate.IOperateInfo).TokenModel;
+                    var info = (context.HttpContext.RequestServices.GetService(typeof(IOperateInfo)) as IOperateInfo).TokenModel;
                     //_ = log.SaveFormAsync(default, new _SystemActionLog()
                     //{
                     //    ActionPath = context.HttpContext.Request.Path.Value,
@@ -90,17 +92,17 @@ namespace C.O.S.E.C.Api.Filters
                         break;
                     case ObjectResult objectResult:
                         context.Result = objectResult.Value.IsEmpty()
-                            ? new ObjectResult(new ResponseParameter { Code = (ResponseCode)404, Info = "未找到资源" })
-                            : new ObjectResult(new ResponseParameter { Code = (ResponseCode)200, Info = "响应成功", Data = objectResult.Value });
+                            ? new ObjectResult(new ResponseObject { Code = (ResponseCode)404, Info = "未找到资源" })
+                            : new ObjectResult(new ResponseObject { Code = (ResponseCode)200, Info = "响应成功", Data = objectResult.Value });
                         break;
                     case EmptyResult _:
                         //context.Result = new ObjectResult(new ResponseParameter { code = (ResponseCode)404, info = "未找到资源" });
                         break;
                     case ContentResult contentResult:
-                        context.Result = new ObjectResult(new ResponseParameter { Code = (ResponseCode)200, Info = contentResult.Content, Data = contentResult.Content });
+                        context.Result = new ObjectResult(new ResponseObject { Code = (ResponseCode)200, Info = contentResult.Content, Data = contentResult.Content });
                         break;
                     case StatusCodeResult statusResult:
-                        context.Result = new ObjectResult(new ResponseParameter { Code = (ResponseCode)statusResult.StatusCode, Info = string.Empty });
+                        context.Result = new ObjectResult(new ResponseObject { Code = (ResponseCode)statusResult.StatusCode, Info = string.Empty });
                         break;
                     default:
                         break;

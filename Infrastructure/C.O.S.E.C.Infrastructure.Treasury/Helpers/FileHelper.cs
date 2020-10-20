@@ -1,11 +1,14 @@
 ﻿//系统包
+using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
 
 namespace C.O.S.E.C.Infrastructure.Treasury.Helpers
 {
-    public static class FileHelper
+    public class FileHelper
     {
+        private static ILogger<FileHelper> logger;
+
         /// <summary>
         /// 保存为不带Bom的文件
         /// </summary>

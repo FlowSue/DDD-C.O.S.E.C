@@ -1,0 +1,95 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>7068bdd4-eb1e-42e6-9a3d-a0ab0429facc</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="OpenAPIs\**" />
+    <Content Remove="OpenAPIs\**" />
+    <EmbeddedResource Remove="OpenAPIs\**" />
+    <None Remove="OpenAPIs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\layuiadmin\config.js" />
+    <None Include="wwwroot\layuiadmin\json\console\prograss.js" />
+    <None Include="wwwroot\layuiadmin\json\console\top-card.js" />
+    <None Include="wwwroot\layuiadmin\json\console\top-search.js" />
+    <None Include="wwwroot\layuiadmin\json\content\comment.js" />
+    <None Include="wwwroot\layuiadmin\json\content\list.js" />
+    <None Include="wwwroot\layuiadmin\json\content\tags.js" />
+    <None Include="wwwroot\layuiadmin\json\forum\list.js" />
+    <None Include="wwwroot\layuiadmin\json\forum\replys.js" />
+    <None Include="wwwroot\layuiadmin\json\layer\photos.js" />
+    <None Include="wwwroot\layuiadmin\json\layim\getList.js" />
+    <None Include="wwwroot\layuiadmin\json\layim\getMembers.js" />
+    <None Include="wwwroot\layuiadmin\json\mall\order.js" />
+    <None Include="wwwroot\layuiadmin\json\menu.js" />
+    <None Include="wwwroot\layuiadmin\json\message\all.js" />
+    <None Include="wwwroot\layuiadmin\json\message\detail.js" />
+    <None Include="wwwroot\layuiadmin\json\message\direct.js" />
+    <None Include="wwwroot\layuiadmin\json\message\new.js" />
+    <None Include="wwwroot\layuiadmin\json\message\notice.js" />
+    <None Include="wwwroot\layuiadmin\json\table\demo.js" />
+    <None Include="wwwroot\layuiadmin\json\table\demo2.js" />
+    <None Include="wwwroot\layuiadmin\json\table\demo3.js" />
+    <None Include="wwwroot\layuiadmin\json\table\user.js" />
+    <None Include="wwwroot\layuiadmin\json\table\user30.js" />
+    <None Include="wwwroot\layuiadmin\json\upload\demo.js" />
+    <None Include="wwwroot\layuiadmin\json\useradmin\mangadmin.js" />
+    <None Include="wwwroot\layuiadmin\json\useradmin\role.js" />
+    <None Include="wwwroot\layuiadmin\json\useradmin\webuser.js" />
+    <None Include="wwwroot\layuiadmin\json\user\forget.js" />
+    <None Include="wwwroot\layuiadmin\json\user\login.js" />
+    <None Include="wwwroot\layuiadmin\json\user\logout.js" />
+    <None Include="wwwroot\layuiadmin\json\user\reg.js" />
+    <None Include="wwwroot\layuiadmin\json\user\resetpass.js" />
+    <None Include="wwwroot\layuiadmin\json\user\session.js" />
+    <None Include="wwwroot\layuiadmin\json\user\sms.js" />
+    <None Include="wwwroot\layuiadmin\json\workorder\demo.js" />
+    <None Include="wwwroot\layuiadmin\lib\admin.js" />
+    <None Include="wwwroot\layuiadmin\lib\extend\echarts.js" />
+    <None Include="wwwroot\layuiadmin\lib\extend\echartsTheme.js" />
+    <None Include="wwwroot\layuiadmin\lib\index.js" />
+    <None Include="wwwroot\layuiadmin\lib\view.js" />
+    <None Include="wwwroot\layuiadmin\modules\common.js" />
+    <None Include="wwwroot\layuiadmin\modules\console.js" />
+    <None Include="wwwroot\layuiadmin\modules\contlist.js" />
+    <None Include="wwwroot\layuiadmin\modules\forum.js" />
+    <None Include="wwwroot\layuiadmin\modules\im.js" />
+    <None Include="wwwroot\layuiadmin\modules\message.js" />
+    <None Include="wwwroot\layuiadmin\modules\sample.js" />
+    <None Include="wwwroot\layuiadmin\modules\senior.js" />
+    <None Include="wwwroot\layuiadmin\modules\set.js" />
+    <None Include="wwwroot\layuiadmin\modules\user.js" />
+    <None Include="wwwroot\layuiadmin\modules\useradmin.js" />
+    <None Include="wwwroot\layuiadmin\modules\workorder.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.9" />
+    <PackageReference Include="Microsoft.Extensions.ApiDescription.Client" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="NSwag.ApiDescription.Client" Version="13.8.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <OpenApiReference Include="OpenAPIs\swagger.json" CodeGenerator="NSwagCSharp">
+      <SourceUri>https://api.flowsue.top/swagger/v1/swagger.json</SourceUri>
+    </OpenApiReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\C.O.S.E.C.Domain\C.O.S.E.C.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

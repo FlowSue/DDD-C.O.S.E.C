@@ -1,0 +1,5942 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "C.O.S.E.C API Help",
+    "description": "客户在线 Customers online，办公在线 Office online，服务在线 Service online，员工在线 Employees online，沟通在线 Communicate online",
+    "contact": {
+      "name": "flow.sue",
+      "url": "https://github.com/FlowSue",
+      "email": "flow.sue@qq.com"
+    },
+    "version": "v1.1.5"
+  },
+  "paths": {
+    "/api/GetClues": {
+      "get": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "获取线索数据 (Auth policies: RequireRoleOfAdminOrClient)",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CluePool"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CluePool"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CluePool"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/GetCluePage": {
+      "get": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "获取线索分页数据 (Auth policies: RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "Rows",
+            "in": "query",
+            "description": "每页行数 (最大100)",
+            "schema": {
+              "type": "integer",
+              "description": "每页行数 (最大100)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Page",
+            "in": "query",
+            "description": "当前页",
+            "schema": {
+              "type": "integer",
+              "description": "当前页",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Sidx",
+            "in": "query",
+            "description": "排序列",
+            "schema": {
+              "type": "string",
+              "description": "排序列",
+              "nullable": true
+            }
+          },
+          {
+            "name": "Sord",
+            "in": "query",
+            "description": "排序类型",
+            "schema": {
+              "type": "string",
+              "description": "排序类型",
+              "nullable": true
+            }
+          },
+          {
+            "name": "Records",
+            "in": "query",
+            "description": "总记录数",
+            "schema": {
+              "type": "integer",
+              "description": "总记录数",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Total",
+            "in": "query",
+            "description": "总页数",
+            "schema": {
+              "type": "integer",
+              "description": "总页数",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CluePoolPagingResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CluePoolPagingResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CluePoolPagingResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ExportExcel": {
+      "get": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "Excel导入线索 (Auth policies: RequireRoleOfAdminOrClient)",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/GetClue": {
+      "get": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "获取线索详情 (Auth policies: RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CluePool"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CluePool"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CluePool"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/AddClue": {
+      "post": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "新增线索 (Auth policies: RequireRoleOfAdminOrClient, RequireRoleOfSystemAdmin)",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CluePool"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CluePool"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CluePool"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient",
+              "RequireRoleOfSystemAdmin"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/EditClue": {
+      "put": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "修改线索 (Auth policies: RequireRoleOfAdmin, RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CluePool"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CluePool"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CluePool"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient",
+              "RequireRoleOfAdmin"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/DeleteClue": {
+      "delete": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "删除线索 (Auth policies: RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ConversionBusiness": {
+      "put": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "线索转换商机 (Auth policies: RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/GetBusinessPage": {
+      "get": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "获取商机分页数据 (Auth policies: RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "Rows",
+            "in": "query",
+            "description": "每页行数 (最大100)",
+            "schema": {
+              "type": "integer",
+              "description": "每页行数 (最大100)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Page",
+            "in": "query",
+            "description": "当前页",
+            "schema": {
+              "type": "integer",
+              "description": "当前页",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Sidx",
+            "in": "query",
+            "description": "排序列",
+            "schema": {
+              "type": "string",
+              "description": "排序列",
+              "nullable": true
+            }
+          },
+          {
+            "name": "Sord",
+            "in": "query",
+            "description": "排序类型",
+            "schema": {
+              "type": "string",
+              "description": "排序类型",
+              "nullable": true
+            }
+          },
+          {
+            "name": "Records",
+            "in": "query",
+            "description": "总记录数",
+            "schema": {
+              "type": "integer",
+              "description": "总记录数",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Total",
+            "in": "query",
+            "description": "总页数",
+            "schema": {
+              "type": "integer",
+              "description": "总页数",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessPoolPagingResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessPoolPagingResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessPoolPagingResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/InvalidBusiness": {
+      "put": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "标记无效商机 (Auth policies: RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/GetBusiness": {
+      "get": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "获取商机详情 (Auth policies: RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessPool"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessPool"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessPool"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/AddBusiness": {
+      "post": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "新增商机 (Auth policies: RequireRoleOfAdminOrClient, RequireRoleOfSystemAdmin)",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BusinessPool"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BusinessPool"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BusinessPool"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient",
+              "RequireRoleOfSystemAdmin"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/EditBusiness": {
+      "put": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "修改商机 (Auth policies: RequireRoleOfAdmin, RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BusinessPool"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BusinessPool"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BusinessPool"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient",
+              "RequireRoleOfAdmin"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/DeleteBusiness": {
+      "delete": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "删除商机 (Auth policies: RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/ConversionCustomer": {
+      "put": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "商机转换客户 (Auth policies: RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/GetCustomerPage": {
+      "get": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "获取客户分页数据 (Auth policies: RequireRoleOfAdminOrClient)",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pagination"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pagination"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pagination"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerPagingResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerPagingResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerPagingResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/GetCustomer": {
+      "get": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "获取客户详情 (Auth policies: RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Customer"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Customer"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Customer"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/AddCustomer": {
+      "post": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "新增客户 (Auth policies: RequireRoleOfAdminOrClient, RequireRoleOfSystemAdmin)",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Customer"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Customer"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Customer"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient",
+              "RequireRoleOfSystemAdmin"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/EditCustomer": {
+      "put": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "修改客户 (Auth policies: RequireRoleOfAdmin, RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Customer"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Customer"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Customer"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient",
+              "RequireRoleOfAdmin"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/InvalidCustomer": {
+      "put": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "标记无效客户 (Auth policies: RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/DeleteCustomer": {
+      "delete": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "删除客户 (Auth policies: RequireRoleOfAdminOrClient, RequireRoleOfSystemAdmin)",
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient",
+              "RequireRoleOfSystemAdmin"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/RangeDeleteCustomer": {
+      "delete": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "批量删除客户 (Auth policies: RequireRoleOfAdminOrClient, RequireRoleOfSystemAdmin)",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "",
+                "nullable": true
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "",
+                "nullable": true
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "",
+                "nullable": true
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient",
+              "RequireRoleOfSystemAdmin"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/GetTrailRecord": {
+      "get": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "获取商机&客户的跟进记录 (Auth policies: RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "description": "商机ID",
+            "schema": {
+              "type": "string",
+              "description": "商机ID",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerTrailRecord"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerTrailRecord"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CustomerTrailRecord"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/AddTrailRecord": {
+      "post": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "新增跟进记录 (Auth policies: RequireRoleOfAdminOrClient)",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerTrailRecord"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerTrailRecord"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerTrailRecord"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/EditTrailRecord": {
+      "put": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "修改跟进记录 (Auth policies: RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerTrailRecord"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerTrailRecord"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerTrailRecord"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/DeleteTrailRecord": {
+      "delete": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "删除跟进记录 (Auth policies: RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/GetWorkPlanPage": {
+      "get": {
+        "tags": [
+          "Employee"
+        ],
+        "summary": "获取工作计划分页数据 (Auth policies: RequireRoleOfAdminOrClient)",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pagination"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pagination"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pagination"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmployeeWorkPlanPagingResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmployeeWorkPlanPagingResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmployeeWorkPlanPagingResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/GetWorkPlan": {
+      "get": {
+        "tags": [
+          "Employee"
+        ],
+        "summary": "获取工作计划内容 (Auth policies: RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmployeeWorkPlan"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmployeeWorkPlan"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmployeeWorkPlan"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WriteWorkPlan": {
+      "post": {
+        "tags": [
+          "Employee"
+        ],
+        "summary": "新增工作计划 (Auth policies: RequireRoleOfAdminOrClient)",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmployeeWorkPlan"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmployeeWorkPlan"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmployeeWorkPlan"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/EditWorkPlan": {
+      "put": {
+        "tags": [
+          "Employee"
+        ],
+        "summary": "修改工作计划 (Auth policies: RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmployeeWorkPlan"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmployeeWorkPlan"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmployeeWorkPlan"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/DeleteWorkPlan": {
+      "delete": {
+        "tags": [
+          "Employee"
+        ],
+        "summary": "删除工作计划 (Auth policies: RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/GetWorkLogPage": {
+      "get": {
+        "tags": [
+          "Employee"
+        ],
+        "summary": "获取工作日志分页数据 (Auth policies: RequireRoleOfAdminOrClient)",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pagination"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pagination"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pagination"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmployeeWorkLogPagingResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmployeeWorkLogPagingResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmployeeWorkLogPagingResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/GetWorkLog": {
+      "get": {
+        "tags": [
+          "Employee"
+        ],
+        "summary": "获取工作日志内容 (Auth policies: RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmployeeWorkLog"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmployeeWorkLog"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmployeeWorkLog"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/WriteWorkLog": {
+      "post": {
+        "tags": [
+          "Employee"
+        ],
+        "summary": "新增工作日志 (Auth policies: RequireRoleOfAdminOrClient)",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmployeeWorkLog"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmployeeWorkLog"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmployeeWorkLog"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/EditWorkLog": {
+      "put": {
+        "tags": [
+          "Employee"
+        ],
+        "summary": "修改工作日志 (Auth policies: RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmployeeWorkLog"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmployeeWorkLog"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmployeeWorkLog"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/DeleteWorkLog": {
+      "delete": {
+        "tags": [
+          "Employee"
+        ],
+        "summary": "删除工作日志 (Auth policies: RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/files/UploadImgList": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "上传多张图片 (Auth policies: RequireRoleOfAdminOrClient, RequireRoleOfSystemAdmin)",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "files": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    },
+                    "description": "",
+                    "nullable": true
+                  }
+                }
+              },
+              "encoding": {
+                "files": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient",
+              "RequireRoleOfSystemAdmin"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/files/UploadImg": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "上传单张图片 (Auth policies: RequireRoleOfAdminOrClient, RequireRoleOfAdminOrClient)",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "description": "",
+                    "format": "binary",
+                    "nullable": true
+                  }
+                }
+              },
+              "encoding": {
+                "file": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient",
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/files/UploadDoc": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "上传文件 (Auth policies: RequireRoleOfAdminOrClient, RequireRoleOfAdminOrClient)",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "description": "",
+                    "format": "binary",
+                    "nullable": true
+                  }
+                }
+              },
+              "encoding": {
+                "file": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient",
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/files/UploadDocList": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "上传多文件 (Auth policies: RequireRoleOfAdminOrClient, RequireRoleOfSystemAdmin)",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "files": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    },
+                    "description": "",
+                    "nullable": true
+                  }
+                }
+              },
+              "encoding": {
+                "files": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient",
+              "RequireRoleOfSystemAdmin"
+            ]
+          }
+        ]
+      }
+    },
+    "/UploadFile/{path}/{name}": {
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "获取图片",
+        "parameters": [
+          {
+            "name": "path",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "nullable": true
+            }
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/files/GetFileListByUser": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "获取用户文件列表 (Auth policies: RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "Rows",
+            "in": "query",
+            "description": "每页行数 (最大100)",
+            "schema": {
+              "type": "integer",
+              "description": "每页行数 (最大100)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Page",
+            "in": "query",
+            "description": "当前页",
+            "schema": {
+              "type": "integer",
+              "description": "当前页",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Sidx",
+            "in": "query",
+            "description": "排序列",
+            "schema": {
+              "type": "string",
+              "description": "排序列",
+              "nullable": true
+            }
+          },
+          {
+            "name": "Sord",
+            "in": "query",
+            "description": "排序类型",
+            "schema": {
+              "type": "string",
+              "description": "排序类型",
+              "nullable": true
+            }
+          },
+          {
+            "name": "Records",
+            "in": "query",
+            "description": "总记录数",
+            "schema": {
+              "type": "integer",
+              "description": "总记录数",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Total",
+            "in": "query",
+            "description": "总页数",
+            "schema": {
+              "type": "integer",
+              "description": "总页数",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "uid",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserFilePagingResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Internal/{type}/GetTargetCustomers": {
+      "get": {
+        "tags": [
+          "Internal"
+        ],
+        "summary": "获取目标客户 (Auth policies: RequireRoleOfAdmin)",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TargetCustomers"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TargetCustomers"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TargetCustomers"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdmin"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Internal/CreateTargetCustomer": {
+      "post": {
+        "tags": [
+          "Internal"
+        ],
+        "summary": "新增目标客户 (Auth policies: RequireRoleOfAdmin)",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TargetCustomers"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TargetCustomers"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TargetCustomers"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TargetCustomers"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TargetCustomers"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TargetCustomers"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdmin"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Internal/{id}/EditTargetCustomer": {
+      "put": {
+        "tags": [
+          "Internal"
+        ],
+        "summary": "修改目标客户 (Auth policies: RequireRoleOfAdmin)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TargetCustomers"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TargetCustomers"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TargetCustomers"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdmin"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Internal/{id}/DeleteTargetCustomer": {
+      "delete": {
+        "tags": [
+          "Internal"
+        ],
+        "summary": "删除目标客户 (Auth policies: RequireRoleOfAdmin)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdmin"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Internal/{type}/GetInternalCustomers": {
+      "get": {
+        "tags": [
+          "Internal"
+        ],
+        "summary": "获取成交客户列表 (Auth policies: RequireRoleOfAdmin)",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InternalCustomers"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InternalCustomers"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InternalCustomers"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdmin"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Internal/CreateInternalCustomer": {
+      "post": {
+        "tags": [
+          "Internal"
+        ],
+        "summary": "新增成交客户 (Auth policies: RequireRoleOfAdmin)",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InternalCustomers"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InternalCustomers"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/InternalCustomers"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/InternalCustomers"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InternalCustomers"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InternalCustomers"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdmin"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Internal/{id}/EditInternalCustomer": {
+      "put": {
+        "tags": [
+          "Internal"
+        ],
+        "summary": "修改成交客户 (Auth policies: RequireRoleOfAdmin)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InternalCustomers"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InternalCustomers"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/InternalCustomers"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdmin"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Internal/{id}/DeleteInternalCustomer": {
+      "delete": {
+        "tags": [
+          "Internal"
+        ],
+        "summary": "删除成交客户 (Auth policies: RequireRoleOfAdmin)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdmin"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Log": {
+      "get": {
+        "tags": [
+          "Log"
+        ],
+        "summary": " (Auth policies: RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "Rows",
+            "in": "query",
+            "description": "每页行数 (最大100)",
+            "schema": {
+              "type": "integer",
+              "description": "每页行数 (最大100)",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Page",
+            "in": "query",
+            "description": "当前页",
+            "schema": {
+              "type": "integer",
+              "description": "当前页",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Sidx",
+            "in": "query",
+            "description": "排序列",
+            "schema": {
+              "type": "string",
+              "description": "排序列",
+              "nullable": true
+            }
+          },
+          {
+            "name": "Sord",
+            "in": "query",
+            "description": "排序类型",
+            "schema": {
+              "type": "string",
+              "description": "排序类型",
+              "nullable": true
+            }
+          },
+          {
+            "name": "Records",
+            "in": "query",
+            "description": "总记录数",
+            "schema": {
+              "type": "integer",
+              "description": "总记录数",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Total",
+            "in": "query",
+            "description": "总页数",
+            "schema": {
+              "type": "integer",
+              "description": "总页数",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/_SystemActionLogPagingResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/_SystemActionLogPagingResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/_SystemActionLogPagingResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Login/CheckLogin": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "summary": "登录验证",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginEntity"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginEntity"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginEntity"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenEntity"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenEntity"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenEntity"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Login/ExitLogin": {
+      "get": {
+        "tags": [
+          "Login"
+        ],
+        "summary": "退出登录",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Login/TakeToken": {
+      "get": {
+        "tags": [
+          "Login"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "tokenStr",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Menu": {
+      "get": {
+        "tags": [
+          "Menu"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Report": {
+      "post": {
+        "tags": [
+          "Report"
+        ],
+        "summary": " (Auth policies: RequireRoleOfAdminOrClient)",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/GetSchedule": {
+      "get": {
+        "tags": [
+          "Schedule"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/AddSchedule": {
+      "post": {
+        "tags": [
+          "Schedule"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/EditSchedule": {
+      "put": {
+        "tags": [
+          "Schedule"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/DeleteSchedule": {
+      "delete": {
+        "tags": [
+          "Schedule"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/ScheduleReminder": {
+      "post": {
+        "tags": [
+          "Schedule"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/ScheduleNotice": {
+      "post": {
+        "tags": [
+          "Schedule"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/ApplyService": {
+      "get": {
+        "tags": [
+          "Services"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/GetWorkOrder": {
+      "get": {
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/CreateWorkOrder": {
+      "post": {
+        "tags": [
+          "Services"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/EditWorkOrder": {
+      "put": {
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/DeleteWorkOrder": {
+      "delete": {
+        "tags": [
+          "Services"
+        ],
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/SignalR/SendMessage": {
+      "get": {
+        "tags": [
+          "SignalR"
+        ],
+        "summary": " (Auth policies: RequireRoleOfAdmin)",
+        "parameters": [
+          {
+            "name": "message",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdmin"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/SignalR/Group": {
+      "post": {
+        "tags": [
+          "SignalR"
+        ],
+        "summary": " (Auth policies: RequireRoleOfAdmin)",
+        "parameters": [
+          {
+            "name": "groupname",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "message",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdmin"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/SignalR/Hello": {
+      "post": {
+        "tags": [
+          "SignalR"
+        ],
+        "summary": " (Auth policies: RequireRoleOfAdmin)",
+        "parameters": [
+          {
+            "name": "connectid",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdmin"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/SignalR/AddToGroup": {
+      "post": {
+        "tags": [
+          "SignalR"
+        ],
+        "summary": " (Auth policies: RequireRoleOfAdmin)",
+        "parameters": [
+          {
+            "name": "connectid",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "groupname",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdmin"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/SignalR/ExitToGroup": {
+      "post": {
+        "tags": [
+          "SignalR"
+        ],
+        "summary": " (Auth policies: RequireRoleOfAdmin)",
+        "parameters": [
+          {
+            "name": "connectid",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "groupname",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdmin"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/GetSetting": {
+      "get": {
+        "tags": [
+          "SystemSetting"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/SetSetting": {
+      "put": {
+        "tags": [
+          "SystemSetting"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/DelSetting": {
+      "delete": {
+        "tags": [
+          "SystemSetting"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Test/Token": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "summary": "模拟登录，获取JWT (Auth policies: Free)",
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "nullable": true
+            }
+          },
+          {
+            "name": "uname",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "default": "Admin",
+              "nullable": true
+            }
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "default": "Admin",
+              "nullable": true
+            }
+          },
+          {
+            "name": "project",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "default": "C.O.S.E.C",
+              "nullable": true
+            }
+          },
+          {
+            "name": "tokenType",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "$ref": "#/components/schemas/TokenTypeEnum"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "Free"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Test/SerializeJWT": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "parameters": [
+          {
+            "name": "jwtStr",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenModel"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Test/time": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "parameters": [
+          {
+            "name": "dateTime",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Test/TestException": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "summary": "测试异常",
+        "operationId": "测试异常",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Test/TestException2": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "summary": "测试异常2",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Test/TestException3": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "summary": "测试异常3",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Test/TestException4": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "summary": "测试异常4",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Test/TestException5": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "summary": "测试异常5",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Test/TestException6": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "summary": "测试异常6",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Test/TestException7": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "summary": "测试异常7",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Test/TestConfig1": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "summary": "测试配置1",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Test/TestConfig2": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "summary": "测试配置2",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Test/RootPath": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "summary": " (Auth policies: RequireRoleOfAdminOrClient)",
+        "parameters": [
+          {
+            "name": "flag",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "RequireRoleOfAdminOrClient"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/Test/CodeFirst": {
+      "get": {
+        "tags": [
+          "Test"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/GetOrder": {
+      "get": {
+        "tags": [
+          "Transaction"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/AddOrder": {
+      "post": {
+        "tags": [
+          "Transaction"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/EditOrder": {
+      "put": {
+        "tags": [
+          "Transaction"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/DeleteOrder": {
+      "delete": {
+        "tags": [
+          "Transaction"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/GetContract": {
+      "get": {
+        "tags": [
+          "Transaction"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/AddContract": {
+      "post": {
+        "tags": [
+          "Transaction"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/EditContract": {
+      "put": {
+        "tags": [
+          "Transaction"
+        ],
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/DeleteContract": {
+      "delete": {
+        "tags": [
+          "Transaction"
+        ],
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/UserCenter/GetInfo": {
+      "get": {
+        "tags": [
+          "UserCenter"
+        ],
+        "summary": "获取当前用户信息",
+        "parameters": [
+          {
+            "name": "keyValue",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserInfo"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserInfo"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/UserCenter/Personalization": {
+      "post": {
+        "tags": [
+          "UserCenter"
+        ],
+        "summary": "个性化",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/UserCenter/ForgetPassword": {
+      "get": {
+        "tags": [
+          "UserCenter"
+        ],
+        "summary": "忘记密码",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/UserCenter/{uid}/ChangePassword": {
+      "put": {
+        "tags": [
+          "UserCenter"
+        ],
+        "summary": "修改密码",
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PasswordModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PasswordModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PasswordModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/UserCenter/ChangeInfo": {
+      "get": {
+        "tags": [
+          "UserCenter"
+        ],
+        "summary": "修改个人信息",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "StatusState": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "description": "数据状态",
+        "format": "int32"
+      },
+      "CluePool": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "主键ID",
+            "format": "uuid"
+          },
+          "snowflakeID": {
+            "type": "integer",
+            "description": "自增ID",
+            "format": "int64"
+          },
+          "enCode": {
+            "type": "string",
+            "description": "编码",
+            "nullable": true
+          },
+          "fullName": {
+            "type": "string",
+            "description": "全称",
+            "nullable": true
+          },
+          "companyAddress": {
+            "type": "string",
+            "description": "公司地址",
+            "nullable": true
+          },
+          "companyNetSite": {
+            "type": "string",
+            "description": "公司站点",
+            "nullable": true
+          },
+          "companyNatureId": {
+            "type": "string",
+            "description": "公司性质",
+            "nullable": true
+          },
+          "contact": {
+            "type": "string",
+            "description": "联系人",
+            "nullable": true
+          },
+          "mobile": {
+            "type": "string",
+            "description": "移动电话",
+            "nullable": true
+          },
+          "province": {
+            "type": "string",
+            "description": "省",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "description": "市",
+            "nullable": true
+          },
+          "district": {
+            "type": "string",
+            "description": "区",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "备注",
+            "nullable": true
+          },
+          "isEnable": {
+            "type": "boolean",
+            "description": "是否启用"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "createUserID": {
+            "type": "string",
+            "description": "创建用户ID",
+            "nullable": true
+          },
+          "createUserName": {
+            "type": "string",
+            "description": "创建用户名称",
+            "nullable": true
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          },
+          "updateUserID": {
+            "type": "string",
+            "description": "更新用户ID",
+            "nullable": true
+          },
+          "updateUserName": {
+            "type": "string",
+            "description": "更新用户名称",
+            "nullable": true
+          },
+          "isDelete": {
+            "type": "boolean",
+            "description": "是否删除"
+          },
+          "status": {
+            "$ref": "#/components/schemas/StatusState"
+          },
+          "systemID": {
+            "type": "string",
+            "description": "系统标识",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "线索池"
+      },
+      "Pagination": {
+        "type": "object",
+        "properties": {
+          "rows": {
+            "type": "integer",
+            "description": "每页行数 (最大100)",
+            "format": "int32"
+          },
+          "page": {
+            "type": "integer",
+            "description": "当前页",
+            "format": "int32"
+          },
+          "sidx": {
+            "type": "string",
+            "description": "排序列",
+            "nullable": true
+          },
+          "sord": {
+            "type": "string",
+            "description": "排序类型",
+            "nullable": true
+          },
+          "records": {
+            "type": "integer",
+            "description": "总记录数",
+            "format": "int32"
+          },
+          "total": {
+            "type": "integer",
+            "description": "总页数",
+            "format": "int32",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "分页"
+      },
+      "CluePoolPagingResult": {
+        "type": "object",
+        "properties": {
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CluePool"
+            },
+            "description": "数据",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "分页结果"
+      },
+      "BusinessPool": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "主键",
+            "format": "uuid"
+          },
+          "enCode": {
+            "type": "string",
+            "description": "编码",
+            "nullable": true
+          },
+          "fullName": {
+            "type": "string",
+            "description": "全称",
+            "nullable": true
+          },
+          "companyAddress": {
+            "type": "string",
+            "description": "公司地址",
+            "nullable": true
+          },
+          "companyNetSite": {
+            "type": "string",
+            "description": "公司站点",
+            "nullable": true
+          },
+          "companyNatureId": {
+            "type": "string",
+            "description": "公司性质",
+            "nullable": true
+          },
+          "contact": {
+            "type": "string",
+            "description": "联系人",
+            "nullable": true
+          },
+          "mobile": {
+            "type": "string",
+            "description": "移动电话",
+            "nullable": true
+          },
+          "province": {
+            "type": "string",
+            "description": "省",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "description": "市",
+            "nullable": true
+          },
+          "district": {
+            "type": "string",
+            "description": "区",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "备注",
+            "nullable": true
+          },
+          "traceUserID": {
+            "type": "string",
+            "description": "跟进用户ID",
+            "nullable": true
+          },
+          "traceUserName": {
+            "type": "string",
+            "description": "跟进用户名称",
+            "nullable": true
+          },
+          "isEnable": {
+            "type": "boolean",
+            "description": "是否启用"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "createUserID": {
+            "type": "string",
+            "description": "创建用户ID",
+            "nullable": true
+          },
+          "createUserName": {
+            "type": "string",
+            "description": "创建用户名称",
+            "nullable": true
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          },
+          "updateUserID": {
+            "type": "string",
+            "description": "更新用户ID",
+            "nullable": true
+          },
+          "updateUserName": {
+            "type": "string",
+            "description": "更新用户名称",
+            "nullable": true
+          },
+          "isDelete": {
+            "type": "boolean",
+            "description": "是否删除"
+          },
+          "status": {
+            "$ref": "#/components/schemas/StatusState"
+          },
+          "systemID": {
+            "type": "string",
+            "description": "系统标识",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "商机池"
+      },
+      "BusinessPoolPagingResult": {
+        "type": "object",
+        "properties": {
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BusinessPool"
+            },
+            "description": "数据",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "分页结果"
+      },
+      "Customer": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "主键ID",
+            "format": "uuid"
+          },
+          "enCode": {
+            "type": "string",
+            "description": "编码",
+            "nullable": true
+          },
+          "fullName": {
+            "type": "string",
+            "description": "全称",
+            "nullable": true
+          },
+          "companyAddress": {
+            "type": "string",
+            "description": "公司地址",
+            "nullable": true
+          },
+          "companyNetSite": {
+            "type": "string",
+            "description": "公司站点",
+            "nullable": true
+          },
+          "companyNatureId": {
+            "type": "string",
+            "description": "公司性质",
+            "nullable": true
+          },
+          "custIndustryId": {
+            "type": "string",
+            "description": "客户行业",
+            "nullable": true
+          },
+          "contact": {
+            "type": "string",
+            "description": "联系人",
+            "nullable": true
+          },
+          "mobile": {
+            "type": "string",
+            "description": "移动电话",
+            "nullable": true
+          },
+          "province": {
+            "type": "string",
+            "description": "省",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "description": "市",
+            "nullable": true
+          },
+          "district": {
+            "type": "string",
+            "description": "区",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "备注",
+            "nullable": true
+          },
+          "traceUserID": {
+            "type": "string",
+            "description": "跟进人员ID",
+            "nullable": true
+          },
+          "traceUserName": {
+            "type": "string",
+            "description": "跟进人员名字",
+            "nullable": true
+          },
+          "isPublic": {
+            "type": "boolean",
+            "description": "是否公共"
+          },
+          "isEnable": {
+            "type": "boolean",
+            "description": "是否启用"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "createUserID": {
+            "type": "string",
+            "description": "创建用户ID",
+            "nullable": true
+          },
+          "createUserName": {
+            "type": "string",
+            "description": "创建用户名称",
+            "nullable": true
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          },
+          "updateUserID": {
+            "type": "string",
+            "description": "更新用户ID",
+            "nullable": true
+          },
+          "updateUserName": {
+            "type": "string",
+            "description": "更新用户名称",
+            "nullable": true
+          },
+          "isDelete": {
+            "type": "boolean",
+            "description": "是否删除"
+          },
+          "status": {
+            "$ref": "#/components/schemas/StatusState"
+          },
+          "systemID": {
+            "type": "string",
+            "description": "系统标识",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "客户"
+      },
+      "CustomerPagingResult": {
+        "type": "object",
+        "properties": {
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Customer"
+            },
+            "description": "数据",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "分页结果"
+      },
+      "CustomerTrailRecord": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "主键ID",
+            "format": "uuid"
+          },
+          "isEnable": {
+            "type": "boolean",
+            "description": "是否启用"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "createUserID": {
+            "type": "string",
+            "description": "创建用户ID",
+            "nullable": true
+          },
+          "createUserName": {
+            "type": "string",
+            "description": "创建用户名称",
+            "nullable": true
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          },
+          "updateUserID": {
+            "type": "string",
+            "description": "更新用户ID",
+            "nullable": true
+          },
+          "updateUserName": {
+            "type": "string",
+            "description": "更新用户名称",
+            "nullable": true
+          },
+          "isDelete": {
+            "type": "boolean",
+            "description": "是否删除"
+          },
+          "status": {
+            "$ref": "#/components/schemas/StatusState"
+          },
+          "systemID": {
+            "type": "string",
+            "description": "系统标识",
+            "nullable": true
+          },
+          "businessPoolID": {
+            "type": "string",
+            "description": "商机ID",
+            "nullable": true
+          },
+          "trackContent": {
+            "type": "string",
+            "description": "跟进内容",
+            "nullable": true
+          },
+          "contacts": {
+            "type": "string",
+            "description": "联系人",
+            "nullable": true
+          },
+          "dayDate": {
+            "type": "string",
+            "description": "跟进时间",
+            "format": "date-time"
+          },
+          "description": {
+            "type": "string",
+            "description": "备注",
+            "nullable": true
+          },
+          "trackTypeId": {
+            "type": "string",
+            "description": "跟进类型",
+            "nullable": true
+          },
+          "companyName": {
+            "type": "string",
+            "description": "公司名称",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "跟进记录"
+      },
+      "EmployeeWorkPlan": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "主键ID",
+            "format": "uuid"
+          },
+          "isEnable": {
+            "type": "boolean",
+            "description": "是否启用"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "createUserID": {
+            "type": "string",
+            "description": "创建用户ID",
+            "nullable": true
+          },
+          "createUserName": {
+            "type": "string",
+            "description": "创建用户名称",
+            "nullable": true
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          },
+          "updateUserID": {
+            "type": "string",
+            "description": "更新用户ID",
+            "nullable": true
+          },
+          "updateUserName": {
+            "type": "string",
+            "description": "更新用户名称",
+            "nullable": true
+          },
+          "isDelete": {
+            "type": "boolean",
+            "description": "是否删除"
+          },
+          "status": {
+            "$ref": "#/components/schemas/StatusState"
+          },
+          "systemID": {
+            "type": "string",
+            "description": "系统标识",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "工作计划"
+      },
+      "EmployeeWorkPlanPagingResult": {
+        "type": "object",
+        "properties": {
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EmployeeWorkPlan"
+            },
+            "description": "数据",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "分页结果"
+      },
+      "EmployeeWorkLog": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "主键ID",
+            "format": "uuid"
+          },
+          "isEnable": {
+            "type": "boolean",
+            "description": "是否启用"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "createUserID": {
+            "type": "string",
+            "description": "创建用户ID",
+            "nullable": true
+          },
+          "createUserName": {
+            "type": "string",
+            "description": "创建用户名称",
+            "nullable": true
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          },
+          "updateUserID": {
+            "type": "string",
+            "description": "更新用户ID",
+            "nullable": true
+          },
+          "updateUserName": {
+            "type": "string",
+            "description": "更新用户名称",
+            "nullable": true
+          },
+          "isDelete": {
+            "type": "boolean",
+            "description": "是否删除"
+          },
+          "status": {
+            "$ref": "#/components/schemas/StatusState"
+          },
+          "systemID": {
+            "type": "string",
+            "description": "系统标识",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "工作日志"
+      },
+      "EmployeeWorkLogPagingResult": {
+        "type": "object",
+        "properties": {
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EmployeeWorkLog"
+            },
+            "description": "数据",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "分页结果"
+      },
+      "UserFile": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "主键ID",
+            "format": "uuid"
+          },
+          "fileName": {
+            "type": "string",
+            "description": "文件名",
+            "nullable": true
+          },
+          "fileExt": {
+            "type": "string",
+            "description": "文件扩展名",
+            "nullable": true
+          },
+          "filePath": {
+            "type": "string",
+            "description": "文件路径",
+            "nullable": true
+          },
+          "formerName": {
+            "type": "string",
+            "description": "文件原名",
+            "nullable": true
+          },
+          "isEnable": {
+            "type": "boolean",
+            "description": "是否启用"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "createUserID": {
+            "type": "string",
+            "description": "创建用户ID",
+            "nullable": true
+          },
+          "createUserName": {
+            "type": "string",
+            "description": "创建用户名称",
+            "nullable": true
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          },
+          "updateUserID": {
+            "type": "string",
+            "description": "更新用户ID",
+            "nullable": true
+          },
+          "updateUserName": {
+            "type": "string",
+            "description": "更新用户名称",
+            "nullable": true
+          },
+          "isDelete": {
+            "type": "boolean",
+            "description": "是否删除"
+          },
+          "status": {
+            "$ref": "#/components/schemas/StatusState"
+          },
+          "systemID": {
+            "type": "string",
+            "description": "系统标识",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "用户文件"
+      },
+      "UserFilePagingResult": {
+        "type": "object",
+        "properties": {
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserFile"
+            },
+            "description": "数据",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "分页结果"
+      },
+      "TargetCustomers": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "主键ID",
+            "format": "int32"
+          },
+          "enCode": {
+            "type": "string",
+            "description": "编码",
+            "nullable": true
+          },
+          "fullName": {
+            "type": "string",
+            "description": "名称",
+            "nullable": true
+          },
+          "contact": {
+            "type": "string",
+            "description": "联系人",
+            "nullable": true
+          },
+          "mobile": {
+            "type": "string",
+            "description": "联系电话",
+            "nullable": true
+          },
+          "clientType": {
+            "type": "integer",
+            "description": "状态类型 0：目标客户，1：商机客户，-1：成交客户",
+            "format": "int32"
+          },
+          "industry": {
+            "type": "string",
+            "description": "行业",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "备注",
+            "nullable": true
+          },
+          "recommended": {
+            "type": "string",
+            "description": "推荐产品",
+            "nullable": true
+          },
+          "visitTime": {
+            "type": "string",
+            "description": "拜访时间",
+            "format": "date-time",
+            "nullable": true
+          },
+          "visitUser": {
+            "type": "string",
+            "description": "拜访人",
+            "nullable": true
+          },
+          "money": {
+            "type": "number",
+            "description": "产品金额",
+            "format": "double"
+          },
+          "expectedTime": {
+            "type": "string",
+            "description": "预计成交时间",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createUserID": {
+            "type": "string",
+            "description": "操作员ID",
+            "nullable": true
+          },
+          "createUserName": {
+            "type": "string",
+            "description": "操作员",
+            "nullable": true
+          },
+          "createTime": {
+            "type": "string",
+            "description": "录入时间",
+            "format": "date-time"
+          },
+          "updateUserID": {
+            "type": "string",
+            "description": "操作员ID",
+            "nullable": true
+          },
+          "updateUserName": {
+            "type": "string",
+            "description": "操作员",
+            "nullable": true
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "录入时间",
+            "format": "date-time"
+          },
+          "isDelete": {
+            "type": "boolean",
+            "description": "是否删除"
+          }
+        },
+        "additionalProperties": false,
+        "description": "目标客户（内部）"
+      },
+      "InternalCustomers": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "主键ID",
+            "format": "int32"
+          },
+          "enCode": {
+            "type": "string",
+            "description": "编码",
+            "nullable": true
+          },
+          "fullName": {
+            "type": "string",
+            "description": "名称",
+            "nullable": true
+          },
+          "contact": {
+            "type": "string",
+            "description": "联系人",
+            "nullable": true
+          },
+          "mobile": {
+            "type": "string",
+            "description": "联系电话",
+            "nullable": true
+          },
+          "industry": {
+            "type": "string",
+            "description": "行业",
+            "nullable": true
+          },
+          "clientType": {
+            "type": "integer",
+            "description": "状态类型 0：成交客户，1：售后",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string",
+            "description": "备注",
+            "nullable": true
+          },
+          "buyproduct": {
+            "type": "string",
+            "description": "购买产品",
+            "nullable": true
+          },
+          "signingTime": {
+            "type": "string",
+            "description": "签单时间",
+            "format": "date-time",
+            "nullable": true
+          },
+          "localsite": {
+            "type": "string",
+            "description": "局域站点",
+            "nullable": true
+          },
+          "globalsite": {
+            "type": "string",
+            "description": "全局站点",
+            "nullable": true
+          },
+          "renewaldue": {
+            "type": "string",
+            "description": "续费到期",
+            "format": "date-time",
+            "nullable": true
+          },
+          "implementationTime": {
+            "type": "string",
+            "description": "产品实施",
+            "format": "date-time",
+            "nullable": true
+          },
+          "technologyTime": {
+            "type": "string",
+            "description": "售后技术",
+            "format": "date-time",
+            "nullable": true
+          },
+          "chargeMethod": {
+            "type": "string",
+            "description": "收费方式",
+            "nullable": true
+          },
+          "serviceExpired": {
+            "type": "string",
+            "description": "服务到期",
+            "format": "date-time",
+            "nullable": true
+          },
+          "productDelivery": {
+            "type": "string",
+            "description": "产品交付",
+            "format": "date-time",
+            "nullable": true
+          },
+          "engineer": {
+            "type": "string",
+            "description": "工程师",
+            "nullable": true
+          },
+          "contractAmount": {
+            "type": "string",
+            "description": "合同金额",
+            "nullable": true
+          },
+          "servicePack": {
+            "type": "string",
+            "description": "续年服务包",
+            "nullable": true
+          },
+          "createUserID": {
+            "type": "string",
+            "description": "操作员ID",
+            "nullable": true
+          },
+          "createUserName": {
+            "type": "string",
+            "description": "操作员",
+            "nullable": true
+          },
+          "createTime": {
+            "type": "string",
+            "description": "录入时间",
+            "format": "date-time"
+          },
+          "isDelete": {
+            "type": "boolean",
+            "description": "是否删除"
+          },
+          "updateUserID": {
+            "type": "string",
+            "description": "操作员ID",
+            "nullable": true
+          },
+          "updateUserName": {
+            "type": "string",
+            "description": "操作员",
+            "nullable": true
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "录入时间",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "成交客户（内部）"
+      },
+      "_SystemActionLog": {
+        "type": "object",
+        "properties": {
+          "actionPath": {
+            "type": "string",
+            "description": "调用API地址",
+            "nullable": true
+          },
+          "requestIP": {
+            "type": "string",
+            "description": "请求者IP",
+            "nullable": true
+          },
+          "controllerName": {
+            "type": "string",
+            "description": "访问控制器",
+            "nullable": true
+          },
+          "actionName": {
+            "type": "string",
+            "description": "执行动作",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "备注",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "description": "主键",
+            "format": "uuid"
+          },
+          "isEnable": {
+            "type": "boolean",
+            "description": "是否启用"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "createUserID": {
+            "type": "string",
+            "description": "创建用户ID",
+            "nullable": true
+          },
+          "createUserName": {
+            "type": "string",
+            "description": "创建用户名称",
+            "nullable": true
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "",
+            "format": "date-time"
+          },
+          "updateUserID": {
+            "type": "string",
+            "description": "",
+            "nullable": true
+          },
+          "updateUserName": {
+            "type": "string",
+            "description": "",
+            "nullable": true
+          },
+          "isDelete": {
+            "type": "boolean",
+            "description": ""
+          },
+          "status": {
+            "$ref": "#/components/schemas/StatusState"
+          },
+          "systemID": {
+            "type": "string",
+            "description": "系统标识",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "系统访问日志"
+      },
+      "_SystemActionLogPagingResult": {
+        "type": "object",
+        "properties": {
+          "pagination": {
+            "$ref": "#/components/schemas/Pagination"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/_SystemActionLog"
+            },
+            "description": "数据",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "分页结果"
+      },
+      "LoginEntity": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "用户名",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "description": "密码",
+            "nullable": true
+          },
+          "os": {
+            "type": "integer",
+            "description": "系统",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "登录用实体"
+      },
+      "TokenEntity": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "description": "token令牌",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TokenTypeEnum": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "description": "终端类型枚举",
+        "format": "int32"
+      },
+      "TokenModel": {
+        "type": "object",
+        "properties": {
+          "uid": {
+            "type": "string",
+            "description": "登录用户Id",
+            "nullable": true
+          },
+          "uname": {
+            "type": "string",
+            "description": "登录用户名",
+            "nullable": true
+          },
+          "rname": {
+            "type": "string",
+            "description": "真实姓名",
+            "nullable": true
+          },
+          "role": {
+            "type": "string",
+            "description": "身份",
+            "nullable": true
+          },
+          "project": {
+            "type": "string",
+            "description": "项目名称",
+            "nullable": true
+          },
+          "systemId": {
+            "type": "string",
+            "description": "系统标识",
+            "nullable": true
+          },
+          "tokenType": {
+            "$ref": "#/components/schemas/TokenTypeEnum"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Token实体"
+      },
+      "UserRolesEnum": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "description": "用户角色",
+        "format": "int32"
+      },
+      "UserInfo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "主键ID",
+            "format": "uuid"
+          },
+          "account": {
+            "type": "string",
+            "description": "账户",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "description": "密码",
+            "nullable": true
+          },
+          "enCode": {
+            "type": "string",
+            "description": "编号",
+            "nullable": true
+          },
+          "nickName": {
+            "type": "string",
+            "description": "昵称",
+            "nullable": true
+          },
+          "realName": {
+            "type": "string",
+            "description": "真实姓名",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "description": "邮箱",
+            "nullable": true
+          },
+          "avatar": {
+            "type": "string",
+            "description": "头像",
+            "nullable": true
+          },
+          "weChat": {
+            "type": "string",
+            "description": "微信",
+            "nullable": true
+          },
+          "qq": {
+            "type": "string",
+            "description": "QQ",
+            "nullable": true
+          },
+          "weiXinFromOpenID": {
+            "type": "string",
+            "description": "微信OpenID",
+            "nullable": true
+          },
+          "organizeID": {
+            "type": "string",
+            "description": "所属组织",
+            "nullable": true
+          },
+          "departmentID": {
+            "type": "string",
+            "description": "所属部门",
+            "nullable": true
+          },
+          "province": {
+            "type": "string",
+            "description": "省",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "description": "市",
+            "nullable": true
+          },
+          "district": {
+            "type": "string",
+            "description": "区",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "description": "详细地址",
+            "nullable": true
+          },
+          "birthday": {
+            "type": "string",
+            "description": "生日",
+            "format": "date-time"
+          },
+          "gender": {
+            "type": "boolean",
+            "description": "性别"
+          },
+          "mobile": {
+            "type": "string",
+            "description": "电话",
+            "nullable": true
+          },
+          "role": {
+            "$ref": "#/components/schemas/UserRolesEnum"
+          },
+          "isAdmin": {
+            "type": "boolean",
+            "description": "是否是超管"
+          },
+          "isEnable": {
+            "type": "boolean",
+            "description": "是否启用"
+          },
+          "createTime": {
+            "type": "string",
+            "description": "创建时间",
+            "format": "date-time"
+          },
+          "createUserID": {
+            "type": "string",
+            "description": "创建用户ID",
+            "nullable": true
+          },
+          "createUserName": {
+            "type": "string",
+            "description": "创建用户名称",
+            "nullable": true
+          },
+          "updateTime": {
+            "type": "string",
+            "description": "更新时间",
+            "format": "date-time"
+          },
+          "updateUserID": {
+            "type": "string",
+            "description": "更新用户ID",
+            "nullable": true
+          },
+          "updateUserName": {
+            "type": "string",
+            "description": "更新用户名称",
+            "nullable": true
+          },
+          "isDelete": {
+            "type": "boolean",
+            "description": "是否删除"
+          },
+          "status": {
+            "$ref": "#/components/schemas/StatusState"
+          },
+          "systemID": {
+            "type": "string",
+            "description": "系统标识",
+            "nullable": true
+          },
+          "loginMsg": {
+            "type": "string",
+            "description": "登录信息",
+            "nullable": true
+          },
+          "loginOk": {
+            "type": "boolean",
+            "description": "登录状态"
+          },
+          "token": {
+            "type": "string",
+            "description": "令牌",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "用户信息"
+      },
+      "PasswordModel": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "description": "获得/设置 原密码",
+            "nullable": true
+          },
+          "newPassword": {
+            "type": "string",
+            "description": "获得/设置 新密码",
+            "nullable": true
+          },
+          "confirmPassword": {
+            "type": "string",
+            "description": "获得/设置 确认密码",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "密码保存实体类"
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "JWT授权(数据将在请求头中进行传输) 直接在下框中输入Bearer {token}（注意两者之间是一个空格）\"",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Customer",
+      "description": "商机&客户系统接口"
+    },
+    {
+      "name": "Employee",
+      "description": "员工系统接口"
+    },
+    {
+      "name": "File",
+      "description": "文件管理"
+    },
+    {
+      "name": "Internal",
+      "description": "内部用"
+    },
+    {
+      "name": "Log",
+      "description": "日志"
+    },
+    {
+      "name": "Login",
+      "description": "登录系统接口"
+    },
+    {
+      "name": "Menu",
+      "description": "用户功能列表管理"
+    },
+    {
+      "name": "Report",
+      "description": "报表"
+    },
+    {
+      "name": "Schedule",
+      "description": "日程管理"
+    },
+    {
+      "name": "Services",
+      "description": "服务管理"
+    },
+    {
+      "name": "SignalR",
+      "description": "IM"
+    },
+    {
+      "name": "SystemSetting",
+      "description": "系统设置"
+    },
+    {
+      "name": "Test",
+      "description": "系统测试接口"
+    },
+    {
+      "name": "Transaction",
+      "description": "交易管理"
+    },
+    {
+      "name": "UserCenter",
+      "description": "个人中心"
+    }
+  ]
+}

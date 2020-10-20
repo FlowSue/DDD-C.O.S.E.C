@@ -8,14 +8,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Models\TokenModel.cs" />
+    <Compile Remove="AuthModels\**" />
+    <Compile Remove="Enums\**" />
+    <Compile Remove="Interfaces\**" />
+    <Compile Remove="Models\**" />
+    <EmbeddedResource Remove="AuthModels\**" />
+    <EmbeddedResource Remove="Enums\**" />
+    <EmbeddedResource Remove="Interfaces\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="AuthModels\**" />
+    <None Remove="Enums\**" />
+    <None Remove="Interfaces\**" />
+    <None Remove="Models\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="3.1.6" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="3.1.9" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.9" />
     <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="3.1.6" />
-    <PackageReference Include="sqlSugarCore" Version="5.0.0.15" />
+    <PackageReference Include="NPOI" Version="2.5.1" />
+    <PackageReference Include="sqlSugarCore" Version="5.0.0.18" />
     <PackageReference Include="System.Runtime.Loader" Version="4.3.0" />
   </ItemGroup>
 

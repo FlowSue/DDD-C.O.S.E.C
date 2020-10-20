@@ -1,4 +1,5 @@
-﻿using C.O.S.E.C.Domain.InterfaceDrivers;
+﻿using C.O.S.E.C.Domain.Entity;
+using C.O.S.E.C.Domain.InterfaceDrivers;
 using C.O.S.E.C.Domain.InterfaceDrivers.Services;
 using C.O.S.E.C.Infrastructure.Config;
 using SqlSugar;
@@ -8,8 +9,12 @@ using System.Linq;
 
 namespace C.O.S.E.C.Domain.Factory
 {
-    public class DbContext<T> where T : class, IEntity<T>, new()
+    public class DbContext<T> : IDisposable where T : BaseEntityModel, new()
     {
+        /// <summary>
+        /// 获取或设置一个值。该值指示资源已经被释放。
+        /// </summary>
+        private bool _disposed;
         private readonly AllConfigModel allConfigModel;
         protected readonly IEntityBaseAutoSetter setter;
         public DbContext(AllConfigModel _allConfigModel, IEntityBaseAutoSetter _setter)
@@ -33,6 +38,13 @@ namespace C.O.S.E.C.Domain.Factory
                 Console.WriteLine();
             };
             #region 全局过滤
+            Db.QueryFilter.Add(new SqlFilterItem()
+            {
+                FilterValue = filterDb =>
+                {
+                    return new SqlFilterResult() { Sql = $" SystemID='{setter.SystemId}'" };//过滤器字符串更好
+                }
+            });
             //var ComponentDbSystemId = ConfigSugar.GetAppString("ComponentDbSystemId");
             //db.QueryFilter.Add(new SqlFilterItem()//单表全局过滤器
             //{
@@ -81,12 +93,41 @@ namespace C.O.S.E.C.Domain.Factory
         /// <summary>
         /// 更新
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="obj"></param>
         /// <returns></returns>
         public virtual bool Update(T obj)
         {
             return CurrentDb.Update(obj);
         }
 
+        public void Dispose()
+        {
+            Dispose(true);
+
+            // 指示GC不要调用此对象的Finalize方法
+            GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// 执行与释放或重置非托管资源相关的应用程序定义的任务。
+        /// 派生类中重写此方法时，需要释放派生类中额外使用的资源。
+        /// </summary> 
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed)
+            {
+                return;
+            }
+
+            if (disposing)
+            {
+                // TODO 清理托管资源 
+                Db.Dispose();
+            }
+
+            // TODO 1.清理非托管资源  2.将大对象{一个对象如果超过85000byte（经验值），那么将会被分配到大对象堆上（LOH：large object heap）}设置为null
+
+            _disposed = true; // 标记已经被释放。
+        }
     }
 }

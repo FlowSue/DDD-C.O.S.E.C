@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Reflection;
@@ -50,6 +51,16 @@ namespace C.O.S.E.C
                         if (setter != default)
                         {
                             object value = row[property.Name] == DBNull.Value ? default : row[property.Name];
+                            setter.Invoke(instance, new[] { value });
+                        }
+                    }
+                    var displayName = property.GetCustomAttribute<DisplayNameAttribute>().DisplayName;
+                    if (dataTable.Columns.Contains(displayName))
+                    {
+                        MethodInfo setter = property.GetSetMethod(true);
+                        if (setter != default)
+                        {
+                            object value = row[displayName] == DBNull.Value ? default : row[displayName];
                             setter.Invoke(instance, new[] { value });
                         }
                     }

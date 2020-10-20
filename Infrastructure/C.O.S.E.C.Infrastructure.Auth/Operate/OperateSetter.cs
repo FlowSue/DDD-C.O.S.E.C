@@ -1,7 +1,8 @@
 ﻿//系统包
+using C.O.S.E.C.Domain.InterfaceDrivers.Services;
+using C.O.S.E.C.Domain.Models;
 using System;
 //本地项目包
-using C.O.S.E.C.Infrastructure.Auth.Models;
 
 namespace C.O.S.E.C.Infrastructure.Auth.Operate
 {

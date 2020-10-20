@@ -1,6 +1,6 @@
 using System;
 
-namespace C.O.S.E.C.Api
+namespace COSEC.App.Data
 {
     public class WeatherForecast
     {

@@ -172,9 +172,9 @@ namespace C.O.S.E.C.Domain.Entity
         /// </summary>
         public SystemOrder Create(IEntityBaseAutoSetter setter)
         {
-            CreateUserID = setter.CreateId;
-            CreateUserName = setter.CreateName;
-            CreateTime = setter.CreateTime;
+            CreateTime = UpdateTime = setter.CreateTime;
+            CreateUserID = UpdateUserID = setter.CreateId;
+            CreateUserName = UpdateUserName = setter.CreateName;
             IsEnable = true;
             IsDelete = false;
             Status = StatusState.Normal;

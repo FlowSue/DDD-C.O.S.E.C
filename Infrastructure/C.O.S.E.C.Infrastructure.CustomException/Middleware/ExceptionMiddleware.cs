@@ -1,15 +1,11 @@
-﻿//系统包
-using System;
-using System.Threading.Tasks;
-//微软包
+﻿using C.O.S.E.C.Domain.Enums;
+using C.O.S.E.C.Domain.Models;
+using C.O.S.E.C.Treasury.Helpers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
-//三方包
 using Newtonsoft.Json;
-//本地项目包
-using C.O.S.E.C.Infrastructure.Treasury.Models;
-using C.O.S.E.C.Treasury.Helpers;
-using C.O.S.E.C.Infrastructure.Treasury.Enums;
+using System;
+using System.Threading.Tasks;
 
 namespace C.O.S.E.C.Infrastructure.CustomException.Middleware
 {
@@ -82,7 +78,7 @@ namespace C.O.S.E.C.Infrastructure.CustomException.Middleware
         /// <returns></returns>
         private static Task HandleExceptionAsync(HttpContext context, int statusCode, string msg)
         {
-            var response = new ResponseParameter { Code = (ResponseCode)statusCode, Info = msg };
+            var response = new ResponseObject { Code = (ResponseCode)statusCode, Info = msg };
             context.Response.ContentType = "application/json;charset=utf-8";
             return context.Response.WriteAsync(JsonConvert.SerializeObject(response));
         }

@@ -20,27 +20,27 @@ namespace C.O.S.E.C.Domain.Entity
         /// 账户
         /// </summary>
         public string Account { get; set; }
-        
+
         /// <summary>
         /// 密码
         /// </summary>
         public string Password { get; set; }
-        
+
         /// <summary>
         /// 编号
         /// </summary>
         public string EnCode { get; set; }
-        
+
         /// <summary>
         /// 昵称
         /// </summary>
         public string NickName { get; set; }
-        
+
         /// <summary>
         /// 真实姓名
         /// </summary>
         public string RealName { get; set; }
-        
+
         /// <summary>
         /// 邮箱
         /// </summary>
@@ -87,37 +87,37 @@ namespace C.O.S.E.C.Domain.Entity
         /// 市
         /// </summary>
         public string City { get; set; }
-        
+
         /// <summary>
         /// 区
         /// </summary>
         public string District { get; set; }
-        
+
         /// <summary>
         /// 详细地址
         /// </summary>
         public string Address { get; set; }
-        
+
         /// <summary>
         /// 生日
         /// </summary>
         public DateTime Birthday { get; set; }
-        
+
         /// <summary>
         /// 性别
         /// </summary>
         public bool Gender { get; set; }
-        
+
         /// <summary>
         /// 电话
         /// </summary>
         public string Mobile { get; set; }
-        
+
         /// <summary>
         /// 角色身份
         /// </summary>
         public UserRolesEnum Role { get; set; }
-        
+
         /// <summary>
         /// 是否是超管
         /// </summary>
@@ -178,9 +178,9 @@ namespace C.O.S.E.C.Domain.Entity
         /// </summary>
         public UserInfo Create(IEntityBaseAutoSetter setter)
         {
-            this.CreateUserID = setter.CreateId;
-            this.CreateUserName = setter.CreateName;
-            this.CreateTime = setter.CreateTime;
+            CreateTime = UpdateTime = setter.CreateTime;
+            CreateUserID = UpdateUserID = setter.CreateId;
+            CreateUserName = UpdateUserName = setter.CreateName;
             this.IsEnable = true;
             this.IsDelete = false;
             this.Status = StatusState.Normal;
@@ -190,7 +190,7 @@ namespace C.O.S.E.C.Domain.Entity
             }
             return this;
         }
-        
+
         /// <summary>
         /// 更新调用
         /// </summary>

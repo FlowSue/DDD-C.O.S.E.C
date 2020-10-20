@@ -92,9 +92,9 @@ namespace C.O.S.E.C.Domain.Entity
         /// <returns></returns>
         public UserFile Create(IEntityBaseAutoSetter setter)
         {
-            CreateTime = setter.CreateTime;
-            CreateUserID = setter.CreateId;
-            CreateUserName = setter.CreateName;
+            CreateTime = UpdateTime = setter.CreateTime;
+            CreateUserID = UpdateUserID = setter.CreateId;
+            CreateUserName = UpdateUserName = setter.CreateName;
             IsDelete = false;
             IsEnable = true;
             Status = StatusState.Normal;
