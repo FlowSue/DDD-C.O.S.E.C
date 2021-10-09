@@ -461,7 +461,7 @@
             模拟登录，获取JWT
             </summary>
             <param name="uid"></param>
-            <param name="uname"></param>
+            <param name="username"></param>
             <param name="role"></param>
             <param name="project"></param>
             <param name="tokenType"></param>

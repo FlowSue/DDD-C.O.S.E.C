@@ -10,7 +10,7 @@ namespace C.O.S.E.C.Domain.InterfaceDrivers
     /// <summary>
     /// 实体通用接口
     /// </summary>
-    public interface IEntity<T> where T : BaseEntityModel
+    public interface IEntity<out T> where T : BaseEntityModel
     {
         /// <summary>
         /// ID
@@ -76,6 +76,7 @@ namespace C.O.S.E.C.Domain.InterfaceDrivers
         /// 编辑调用
         /// </summary>
         /// <param name="keyValue">主键值</param>
+        /// <param name="setter"></param>
         T Modify(Guid keyValue, IEntityBaseAutoSetter setter);
     }
 }

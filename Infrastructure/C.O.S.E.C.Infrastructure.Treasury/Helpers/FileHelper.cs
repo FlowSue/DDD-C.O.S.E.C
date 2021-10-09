@@ -29,11 +29,7 @@ namespace C.O.S.E.C.Infrastructure.Treasury.Helpers
             try
             {
                 //   CreateDir(GetFolderPath(true, tempDir));
-                System.IO.StreamWriter sw;
-                if (noBom)
-                    sw = new System.IO.StreamWriter(tempDir, false, new System.Text.UTF8Encoding(false));
-                else
-                    sw = new System.IO.StreamWriter(tempDir, false, System.Text.Encoding.UTF8);
+                var sw = noBom ? new System.IO.StreamWriter(tempDir, false, new System.Text.UTF8Encoding(false)) : new System.IO.StreamWriter(tempDir, false, System.Text.Encoding.UTF8);
                 sw.Write(TxtStr);
                 sw.Close();
             }

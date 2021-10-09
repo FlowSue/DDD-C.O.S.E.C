@@ -20,12 +20,12 @@ namespace C.O.S.E.C.Infrastructure.Auth.Jwt
         /// 颁发JWT字符串
         /// </summary>
         /// <param name="uid"></param>
-        /// <param name="uname"></param>
+        /// <param name="username"></param>
         /// <param name="role"></param>
         /// <param name="project"></param>
         /// <param name="tokenType"></param>
         /// <returns></returns>
-        string IssueJwt(string uid, string uname, string rname, string role, string systemId, string project = "C.O.S.E.C", TokenTypeEnum tokenType = TokenTypeEnum.Web);
+        string IssueJwt(string uid, string username, string rename, string role, string systemId, string project = "C.O.S.E.C", TokenTypeEnum tokenType = TokenTypeEnum.Web);
 
         /// <summary>
         /// 解析jwt字符串

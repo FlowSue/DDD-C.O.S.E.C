@@ -1,6 +1,7 @@
 ﻿//系统包
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -41,13 +42,13 @@ namespace C.O.S.E.C.Infrastructure.Auth.Jwt
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Iss,"C.O.S.E.C"),//颁发人
-                //new Claim(JwtRegisteredClaimNames.Aud,tokenModel.Uname+tokenModel.TokenType.ToString()+DateTime.Now.ToString()),//颁发对象
-                new Claim(JwtRegisteredClaimNames.Sub,tokenModel.Uname.ToString()),//用户
-                new Claim(JwtRegisteredClaimNames.Jti,tokenModel.Uid.ToString()),//用户Id
+                //new Claim(JwtRegisteredClaimNames.Aud,tokenModel.U_name+tokenModel.TokenType.ToString()+DateTime.Now.ToString()),//颁发对象
+                new Claim(JwtRegisteredClaimNames.Sub,tokenModel.Uname),//用户
+                new Claim(JwtRegisteredClaimNames.Jti,tokenModel.Uid),//用户Id
                 new Claim(JwtClaimTypes.Name, tokenModel.Rname),//用户名
                 new Claim(JwtClaimTypes.Role, tokenModel.Role),//身份
                 //new Claim("proj", tokenModel.Project),//项目
-                new Claim(JwtRegisteredClaimNames.Iat,dateTime.ToUniversalTime().ToString(),ClaimValueTypes.Integer64),
+                new Claim(JwtRegisteredClaimNames.Iat,dateTime.ToUniversalTime().ToString(CultureInfo.InvariantCulture),ClaimValueTypes.Integer64),
                 new Claim(ClaimEnum.TokenModel.ToString(),JsonConvert.SerializeObject(tokenModel)),
             };
             var expMin = tokenModel.TokenType switch
@@ -58,12 +59,12 @@ namespace C.O.S.E.C.Infrastructure.Auth.Jwt
                 TokenTypeEnum.Other => _jwtConfig.OtherExp,
                 _ => _jwtConfig.OtherExp,
             };
-            DateTime expTime = dateTime.AddMinutes(expMin);
+            var expTime = dateTime.AddMinutes(expMin);
 
-            Helper.CacheHelper.SetCacheValue($"Audience{tokenModel.TokenType}-{tokenModel.Uid}", tokenModel.Uname + tokenModel.TokenType.ToString() + DateTime.Now.ToString(), expMin);
+            Helper.CacheHelper.SetCacheValue($"Audience{tokenModel.TokenType}-{tokenModel.Uid}", tokenModel.Uname + tokenModel.TokenType.ToString() + DateTime.Now.ToString(CultureInfo.InvariantCulture), expMin);
             //秘钥
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtConfig.SecurityKey));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var jwt = new JwtSecurityToken(
                 notBefore: DateTime.UtcNow,
@@ -71,24 +72,27 @@ namespace C.O.S.E.C.Infrastructure.Auth.Jwt
                 issuer: "C.O.S.E.C",
                 claims: claims,
                 expires: expTime,//过期时间
-                signingCredentials: creds);
+                signingCredentials: cred);
 
             var encodedJwt = _jwtSecurityTokenHandler.WriteToken(jwt);
 
             return $"{JwtBearerDefaults.AuthenticationScheme} {encodedJwt}";
         }
+
         /// <summary>
         /// 颁发JWT字符串
         /// </summary>
-        /// <param name="uid"></param>
-        /// <param name="uname"></param>
-        /// <param name="role"></param>
-        /// <param name="project"></param>
-        /// <param name="tokenType"></param>
+        /// <param name="uid">用户ID</param>
+        /// <param name="username">用户名</param>
+        /// <param name="rename">昵称</param>
+        /// <param name="role">身份</param>
+        /// <param name="systemId">系统ID</param>
+        /// <param name="project">项目</param>
+        /// <param name="tokenType">token类型</param>
         /// <returns></returns>
-        public string IssueJwt(string uid, string uname = "Admin", string rname = "Admin", string role = "Admin", string systemId = default, string project = "C.O.S.E.C", TokenTypeEnum tokenType = TokenTypeEnum.Web)
+        public string IssueJwt(string uid, string username = "Admin", string rename = "Admin", string role = "Admin", string systemId = default, string project = "C.O.S.E.C", TokenTypeEnum tokenType = TokenTypeEnum.Web)
         {
-            return IssueJwt(new TokenModel() { Uid = uid, Uname = uname, Rname = rname, Role = role, Project = project, SystemId = systemId, TokenType = tokenType });
+            return IssueJwt(new TokenModel() { Uid = uid, Uname = username, Rname = rename, Role = role, Project = project, SystemId = systemId, TokenType = tokenType });
         }
         /// <summary>
         /// 解析jwt字符串
@@ -101,11 +105,11 @@ namespace C.O.S.E.C.Infrastructure.Auth.Jwt
 
             try
             {
-                JwtSecurityToken jwtToken = _jwtSecurityTokenHandler.ReadJwtToken(jwtStr);
-                jwtToken.Payload.TryGetValue("TokenModel", out object tokenModelObj);
-                tm = JsonConvert.DeserializeObject<TokenModel>(tokenModelObj?.ToString());
+                var jwtToken = _jwtSecurityTokenHandler.ReadJwtToken(jwtStr);
+                jwtToken.Payload.TryGetValue("TokenModel", out var tokenModelObj);
+                tm = JsonConvert.DeserializeObject<TokenModel>(tokenModelObj?.ToString()!);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // ignored
             }

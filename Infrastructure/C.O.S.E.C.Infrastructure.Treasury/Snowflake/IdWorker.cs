@@ -3,14 +3,14 @@ using System;
 
 namespace C.O.S.E.C.Infrastructure.Treasury.Snowflake
 {
-    public class IdWorker
+    public sealed class IdWorker
     {
         /// <summary>The _last timestamp</summary>
         private long _lastTimestamp = -1;
         /// <summary>The _lock</summary>
         private readonly object _lock = new object();
-        /// <summary>The twepoch</summary>
-        public const long Twepoch = 1288834974657;
+        /// <summary>The epoch</summary>
+        private const long Twepoch = 1288834974657L;
         /// <summary>The worker identifier bits</summary>
         private const int WorkerIdBits = 5;
         /// <summary>The datacenter identifier bits</summary>
@@ -18,9 +18,9 @@ namespace C.O.S.E.C.Infrastructure.Treasury.Snowflake
         /// <summary>The sequence bits</summary>
         private const int SequenceBits = 12;
         /// <summary>The maximum worker identifier</summary>
-        private const long MaxWorkerId = 31;
+        private const long MaxWorkerId = 31L;
         /// <summary>The maximum datacenter identifier</summary>
-        private const long MaxDatacenterId = 31;
+        private const long MaxDatacenterId = 31L;
         /// <summary>The worker identifier shift</summary>
         private const int WorkerIdShift = 12;
         /// <summary>The datacenter identifier shift</summary>
@@ -28,9 +28,7 @@ namespace C.O.S.E.C.Infrastructure.Treasury.Snowflake
         /// <summary>The timestamp left shift</summary>
         public const int TimestampLeftShift = 22;
         /// <summary>The sequence mask</summary>
-        private const long SequenceMask = 4095;
-        /// <summary>The _sequence</summary>
-        private long _sequence;
+        private const long SequenceMask = 4095L;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:NLC.Treasury.Snowflake.IdWorker" /> class.
@@ -44,72 +42,62 @@ namespace C.O.S.E.C.Infrastructure.Treasury.Snowflake
         {
             this.WorkerId = workerId;
             this.DatacenterId = datacenterId;
-            this._sequence = sequence;
-            if (workerId > 31L || workerId < 0L)
-                throw new ArgumentException(string.Format("worker Id can't be greater than {0} or less than 0", (object)31L));
-            if (datacenterId > 31L || datacenterId < 0L)
-                throw new ArgumentException(string.Format("datacenter Id can't be greater than {0} or less than 0", (object)31L));
+            this.Sequence = sequence;
+            if (workerId > MaxWorkerId || workerId < 0L)
+                throw new ArgumentException($"worker Id can't be greater than {MaxWorkerId} or less than 0");
+            if (datacenterId > MaxDatacenterId || datacenterId < 0L)
+                throw new ArgumentException($"datacenter Id can't be greater than {MaxDatacenterId} or less than 0");
         }
 
         /// <summary>Gets or sets the worker identifier.</summary>
         /// <value>The worker identifier.</value>
-        public long WorkerId { get; protected set; }
+        private long WorkerId { get; set; }
 
         /// <summary>Gets or sets the datacenter identifier.</summary>
         /// <value>The datacenter identifier.</value>
-        public long DatacenterId { get; protected set; }
+        private long DatacenterId { get; set; }
 
         /// <summary>Gets the sequence.</summary>
         /// <value>The sequence.</value>
-        public long Sequence
-        {
-            get
-            {
-                return this._sequence;
-            }
-            internal set
-            {
-                this._sequence = value;
-            }
-        }
+        private long Sequence { get; set; }
 
-        /// <summary>Nexts the identifier.</summary>
+        /// <summary>Next the identifier.</summary>
         /// <returns>System.Int64.</returns>
         /// <exception cref="T:NLC.Treasury.Snowflake.InvalidSystemClock"></exception>
-        public virtual long NextId()
+        public long NextId()
         {
             lock (this._lock)
             {
-                long num = this.TimeGen();
+                var num = TimeGen();
                 if (num < this._lastTimestamp)
-                    throw new InvalidSystemClockException(string.Format("Clock moved backwards.  Refusing to generate id for {0} milliseconds", (object)(this._lastTimestamp - num)));
+                    throw new InvalidSystemClockException($"Clock moved backwards.  Refusing to generate id for {this._lastTimestamp - num} milliseconds");
                 if (this._lastTimestamp == num)
                 {
-                    this._sequence = this._sequence + 1L & 4095L;
-                    if (this._sequence == 0L)
-                        num = this.TilNextMillis(this._lastTimestamp);
+                    this.Sequence = this.Sequence + 1L & SequenceMask;
+                    if (this.Sequence == 0L)
+                        num = TilNextMillis(this._lastTimestamp);
                 }
                 else
-                    this._sequence = 0L;
+                    this.Sequence = 0L;
                 this._lastTimestamp = num;
-                return num - 1288834974657L << 22 | this.DatacenterId << 17 | this.WorkerId << 12 | this._sequence;
+                return num - Twepoch << TimestampLeftShift | this.DatacenterId << DatacenterIdShift | this.WorkerId << WorkerIdShift | this.Sequence;
             }
         }
 
         /// <summary>Tils the next millis.</summary>
         /// <param name="lastTimestamp">The last timestamp.</param>
         /// <returns>System.Int64.</returns>
-        protected virtual long TilNextMillis(long lastTimestamp)
+        private static long TilNextMillis(long lastTimestamp)
         {
-            long num = this.TimeGen();
+            var num = TimeGen();
             while (num <= lastTimestamp)
-                num = this.TimeGen();
+                num = TimeGen();
             return num;
         }
 
         /// <summary>Times the gen.</summary>
         /// <returns>System.Int64.</returns>
-        protected virtual long TimeGen()
+        private static long TimeGen()
         {
             return SnowflakeHelper.CurrentTimeMillis();
         }

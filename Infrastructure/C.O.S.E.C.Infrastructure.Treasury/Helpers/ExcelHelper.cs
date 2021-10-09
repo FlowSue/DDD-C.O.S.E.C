@@ -1,17 +1,17 @@
-﻿using Microsoft.Extensions.Logging;
-using NPOI.SS.UserModel;
-using System;
+﻿using NPOI.SS.UserModel;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.IO;
-using System.Text;
+using System.Linq;
 
 namespace C.O.S.E.C.Infrastructure.Treasury.Helpers
 {
-    public class ExcelHeler
+    /// <summary>
+    /// Excel工具
+    /// </summary>
+    public static class ExcelHelper
     {
-
-        private static ILogger<ExcelHeler> logger;
         /// <summary>
         /// 读取Excel多Sheet数据
         /// </summary>
@@ -26,11 +26,11 @@ namespace C.O.S.E.C.Infrastructure.Treasury.Helpers
                 return null;
             }
             //获取文件信息
-            FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
-            IWorkbook workbook = WorkbookFactory.Create(fs);
+            var fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+            var workbook = WorkbookFactory.Create(fs);
             //获取sheet信息
-            ISheet sheet = null;
-            DataSet ds = new DataSet();
+            ISheet sheet;
+            var ds = new DataSet();
             if (!string.IsNullOrEmpty(sheetName))
             {
                 sheet = workbook.GetSheet(sheetName);
@@ -39,7 +39,7 @@ namespace C.O.S.E.C.Infrastructure.Treasury.Helpers
                     //logger.LogError($"{filePath}未找到sheet:{sheetName}");
                     return null;
                 }
-                DataTable dt = ReadExcelFunc(workbook, sheet);
+                var dt = ReadExcelFunc(sheet);
                 ds.Tables.Add(dt);
             }
             else
@@ -51,7 +51,7 @@ namespace C.O.S.E.C.Infrastructure.Treasury.Helpers
                     sheet = workbook.GetSheetAt(i);
                     if (sheet != null)
                     {
-                        DataTable dt = ReadExcelFunc(workbook, sheet);
+                        DataTable dt = ReadExcelFunc(sheet);
                         if (dt != null) ds.Tables.Add(dt);
                     }
                 }
@@ -62,15 +62,15 @@ namespace C.O.S.E.C.Infrastructure.Treasury.Helpers
         /// <summary>
         /// 读取Excel多Sheet数据
         /// </summary>
-        /// <param name="filePath">文件路径</param>
+        /// <param name="fs">文件流</param>
         /// <param name="sheetName">Sheet名</param>
         /// <returns></returns>
         public static DataSet ReadExcelToDataSet(FileStream fs, string sheetName = null)
         {
-            IWorkbook workbook = WorkbookFactory.Create(fs);
+            var workbook = WorkbookFactory.Create(fs);
             //获取sheet信息
-            ISheet sheet = null;
-            DataSet ds = new DataSet();
+            ISheet sheet;
+            var ds = new DataSet();
             if (!string.IsNullOrEmpty(sheetName))
             {
                 sheet = workbook.GetSheet(sheetName);
@@ -79,22 +79,20 @@ namespace C.O.S.E.C.Infrastructure.Treasury.Helpers
                     //logger.LogError($"{filePath}未找到sheet:{sheetName}");
                     return null;
                 }
-                DataTable dt = ReadExcelFunc(workbook, sheet);
+                var dt = ReadExcelFunc(sheet);
                 ds.Tables.Add(dt);
             }
             else
             {
                 //遍历获取所有数据
-                int sheetCount = workbook.NumberOfSheets;
-                for (int i = 0; i < sheetCount; i++)
+                var sheetCount = workbook.NumberOfSheets;
+                for (var i = 0; i < sheetCount; i++)
                 {
                     sheet = workbook.GetSheetAt(i);
-                    if (sheet != null)
-                    {
-                        DataTable dt = ReadExcelFunc(workbook, sheet);
-                        if (dt != null)
-                            ds.Tables.Add(dt);
-                    }
+                    if (sheet == null) continue;
+                    var dt = ReadExcelFunc(sheet);
+                    if (dt != null)
+                        ds.Tables.Add(dt);
                 }
             }
             return ds;
@@ -103,28 +101,26 @@ namespace C.O.S.E.C.Infrastructure.Treasury.Helpers
         /// <summary>
         /// 读取Excel信息
         /// </summary>
-        /// <param name="workbook">工作区</param>
         /// <param name="sheet">sheet</param>
         /// <returns></returns>
-        private static DataTable ReadExcelFunc(IWorkbook workbook, ISheet sheet)
+        private static DataTable ReadExcelFunc(ISheet sheet)
         {
-            DataTable dt = new DataTable();
+            var dt = new DataTable();
             //获取列信息
-            IRow cells = sheet.GetRow(sheet.FirstRowNum);
+            var cells = sheet.GetRow(sheet.FirstRowNum);
             //空数据化返回
             if (cells == null) return null;
-            int cellsCount = cells.PhysicalNumberOfCells;
+            var cellsCount = cells.PhysicalNumberOfCells;
             //空列返回
             if (cellsCount == 0) return null;
-            int emptyCount = 0;
-            int cellIndex = sheet.FirstRowNum;
-            List<string> listColumns = new List<string>();
-            bool isFindColumn = false;
+            var cellIndex = sheet.FirstRowNum;
+            var listColumns = new List<string>();
+            var isFindColumn = false;
             while (!isFindColumn)
             {
-                emptyCount = 0;
+                var emptyCount = 0;
                 listColumns.Clear();
-                for (int i = 0; i < cellsCount; i++)
+                for (var i = 0; i < cellsCount; i++)
                 {
                     if (string.IsNullOrEmpty(cells.GetCell(i).StringCellValue))
                     {
@@ -141,40 +137,29 @@ namespace C.O.S.E.C.Infrastructure.Treasury.Helpers
                 cells = sheet.GetRow(cellIndex);
             }
 
-            foreach (string columnName in listColumns)
+            foreach (var columnName in listColumns.Where(columnName => !dt.Columns.Contains(columnName)))
             {
-                if (dt.Columns.Contains(columnName))
-                {
-                    //如果允许有重复列名，自己做处理
-                    continue;
-                }
                 dt.Columns.Add(columnName, typeof(string));
             }
             //开始获取数据
-            int rowsCount = sheet.PhysicalNumberOfRows;
-            var rowIndex = 1;
-            DataRow dr = null;
+            var rowsCount = sheet.PhysicalNumberOfRows;
+            const int rowIndex = 1;
             //空数据化返回
             if (rowsCount <= 1) { return null; }
-            for (int i = rowIndex; i < rowsCount; i++)
+            for (var i = rowIndex; i < rowsCount; i++)
             {
                 cells = sheet.GetRow(i);
-                dr = dt.NewRow();
-                for (int j = 0; j < dt.Columns.Count; j++)
+                var dr = dt.NewRow();
+                for (var j = 0; j < dt.Columns.Count; j++)
                 {
                     //这里可以判断数据类型
-                    switch (cells.GetCell(j).CellType)
+                    dr[j] = cells.GetCell(j).CellType switch
                     {
-                        case CellType.String:
-                            dr[j] = cells.GetCell(j).StringCellValue;
-                            break;
-                        case CellType.Numeric:
-                            dr[j] = cells.GetCell(j).NumericCellValue.ToString();
-                            break;
-                        case CellType.Unknown:
-                            dr[j] = cells.GetCell(j).StringCellValue;
-                            break;
-                    }
+                        CellType.String => cells.GetCell(j).StringCellValue,
+                        CellType.Numeric => cells.GetCell(j).NumericCellValue.ToString(CultureInfo.InvariantCulture),
+                        CellType.Unknown => cells.GetCell(j).StringCellValue,
+                        _ => dr[j]
+                    };
                 }
                 dt.Rows.Add(dr);
             }

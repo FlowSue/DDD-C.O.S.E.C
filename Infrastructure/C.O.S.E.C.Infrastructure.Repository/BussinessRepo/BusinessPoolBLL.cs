@@ -13,7 +13,7 @@ namespace C.O.S.E.C.Infrastructure.Repository.BussinessRepo
 {
     class BusinessPoolBLL : DbContext<BusinessPool>, IBusinessPoolBLL
     {
-        public BusinessPoolBLL(AllConfigModel _allConfigModel, IEntityBaseAutoSetter _setter) : base(_allConfigModel, _setter)
+        public BusinessPoolBLL(AllConfigModel allConfigModel, IEntityBaseAutoSetter setter) : base(allConfigModel, setter)
         {
         }
 

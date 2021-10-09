@@ -4,6 +4,9 @@ using System;
 
 namespace C.O.S.E.C.Domain.Entity
 {
+    /// <summary>
+    /// 实体基础结构
+    /// </summary>
     public abstract class BaseEntityModel
     {
         /// <summary>

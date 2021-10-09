@@ -8,12 +8,6 @@ namespace C.O.S.E.C.Infrastructure.Treasury.Helpers
     {
         private static readonly IdWorker Worker = new IdWorker(1L, 1L, 0L);
 
-        public static long NewId
-        {
-            get
-            {
-                return IdGenerateHelper.Worker.NextId();
-            }
-        }
+        public static long NewId => IdGenerateHelper.Worker.NextId();
     }
 }
