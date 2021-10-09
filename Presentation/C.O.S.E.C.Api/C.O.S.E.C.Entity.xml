@@ -9,6 +9,11 @@
             自定义授权特性
             </summary>
         </member>
+        <member name="T:C.O.S.E.C.Domain.Entity.BaseEntityModel">
+            <summary>
+            实体基础结构
+            </summary>
+        </member>
         <member name="P:C.O.S.E.C.Domain.Entity.BaseEntityModel.ID">
             <summary>
             ID
@@ -2218,6 +2223,7 @@
             编辑调用
             </summary>
             <param name="keyValue">主键值</param>
+            <param name="setter"></param>
         </member>
         <member name="T:C.O.S.E.C.Domain.InterfaceDrivers.Services.IEntityBaseAutoSetter">
             <summary>

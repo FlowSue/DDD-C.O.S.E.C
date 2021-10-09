@@ -1,0 +1,791 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>C.O.S.E.C.Infrastructure.Treasury</name>
+    </assembly>
+    <members>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Di.DiExtension.AddAssemblyServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly,System.Func{System.Type,System.Boolean},Microsoft.Extensions.DependencyInjection.ServiceLifetime)">
+            <summary>
+            反射注册
+            </summary>
+            <param name="services"></param>
+            <param name="assembly"></param>
+            <param name="serviceLifetime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Di.DiExtension.GetSingletonInstanceOrNull``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            获取单例注册对象
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Di.DiExtension.AddServiceWithLifeScoped(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Type,System.Type,Microsoft.Extensions.DependencyInjection.ServiceLifetime)">
+            <summary>
+            暴露类型可空注册
+            （如果暴露类型为null，则自动以其本身类型注册）
+            </summary>
+            <param name="services"></param>
+            <param name="interfaceType"></param>
+            <param name="instanceType"></param>
+            <param name="serviceLifetime"></param>
+        </member>
+        <member name="T:C.O.S.E.C.Infrastructure.Treasury.Di.DiHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Di.DiHelper.GetAllAssembliesCoreWeb">
+            <summary>
+             获取Asp.Net Core项目所有程序集
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Helpers.EncryptionHelper.MD5ToBase64String(System.String)">
+            <summary>
+            小写Base64_MD5
+            </summary>
+            <param name="inputValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Helpers.EncryptionHelper.MD5ToBase64String(System.String,System.String)">
+            <summary>
+            小写Base64_MD5（加盐）
+            </summary>
+            <param name="inputValue"></param>
+            <param name="salt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Helpers.EncryptionHelper.MD5_32(System.String)">
+            <summary>
+            小写32位MD5
+            </summary>
+            <param name="inputValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Helpers.EncryptionHelper.MD5_32(System.String,System.String)">
+            <summary>
+            小写32位MD5（加盐）
+            </summary>
+            <param name="inputValue"></param>
+            <param name="salt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Helpers.EncryptionHelper.MD5_16(System.String)">
+            <summary>
+            小写16位MD5
+            </summary>
+            <param name="inputValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Helpers.EncryptionHelper.MD5_16(System.String,System.String)">
+            <summary>
+            小写16位MD5（加盐）
+            </summary>
+            <param name="inputValue"></param>
+            <param name="salt"></param>
+            <returns></returns>
+        </member>
+        <member name="T:C.O.S.E.C.Infrastructure.Treasury.Helpers.ExcelHelper">
+            <summary>
+            Excel工具
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Helpers.ExcelHelper.ReadExcelToDataSet(System.String,System.String)">
+            <summary>
+            读取Excel多Sheet数据
+            </summary>
+            <param name="filePath">文件路径</param>
+            <param name="sheetName">Sheet名</param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Helpers.ExcelHelper.ReadExcelToDataSet(System.IO.FileStream,System.String)">
+            <summary>
+            读取Excel多Sheet数据
+            </summary>
+            <param name="fs">文件流</param>
+            <param name="sheetName">Sheet名</param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Helpers.ExcelHelper.ReadExcelFunc(NPOI.SS.UserModel.ISheet)">
+            <summary>
+            读取Excel信息
+            </summary>
+            <param name="sheet">sheet</param>
+            <returns></returns>
+        </member>
+        <member name="T:C.O.S.E.C.Infrastructure.Treasury.Helpers.FileHelper">
+            <summary>
+            文件操作
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Helpers.FileHelper.#ctor(Microsoft.Extensions.Logging.ILogger{C.O.S.E.C.Infrastructure.Treasury.Helpers.FileHelper})">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+        </member>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Helpers.FileHelper.SaveFile(System.String,System.String)">
+            <summary>
+            保存为不带Bom的文件
+            </summary>
+            <param name="txtStr"></param>
+            <param name="tempDir">格式:a/b.htm,相对根目录</param>
+        </member>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Helpers.FileHelper.SaveFile(System.String,System.String,System.Boolean)">
+            <summary>
+            保存文件内容,自动创建目录
+            </summary>
+            <param name="txtStr"></param>
+            <param name="tempDir">格式:a/b.htm,相对根目录</param>
+            <param name="noBom"></param>
+        </member>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Helpers.FileHelper.FileExists(System.String)">
+            <summary>
+            判断文件是否存在
+            </summary>
+            <param name="file">格式:a/b.htm,相对根目录</param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Helpers.FileHelper.CreateDir(System.String)">
+            <summary>
+            创建目录
+            </summary>
+            <param name="dir">物理路径</param>
+        </member>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Helpers.FileHelper.CreateFolder(System.String)">
+            <summary>
+            创建目录路径
+            </summary>
+            <param name="folderPath">物理路径</param>
+        </member>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Helpers.FileHelper.CopyFile(System.String,System.String,System.Boolean)">
+            <summary>
+            复制文件        
+            </summary>
+            <param name="file1"></param>
+            <param name="file2"></param>
+            <param name="overwrite">如果已经存在是否覆盖？</param>
+        </member>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Helpers.FileHelper.DelFile(System.String)">
+            <summary>
+            删除文件
+            </summary>
+            <param name="filePath">文件物理路径</param>
+        </member>
+        <member name="F:C.O.S.E.C.Infrastructure.Treasury.Snowflake.IdWorker._lastTimestamp">
+            <summary>The _last timestamp</summary>
+        </member>
+        <member name="F:C.O.S.E.C.Infrastructure.Treasury.Snowflake.IdWorker._lock">
+            <summary>The _lock</summary>
+        </member>
+        <member name="F:C.O.S.E.C.Infrastructure.Treasury.Snowflake.IdWorker.Twepoch">
+            <summary>The epoch</summary>
+        </member>
+        <member name="F:C.O.S.E.C.Infrastructure.Treasury.Snowflake.IdWorker.WorkerIdBits">
+            <summary>The worker identifier bits</summary>
+        </member>
+        <member name="F:C.O.S.E.C.Infrastructure.Treasury.Snowflake.IdWorker.DatacenterIdBits">
+            <summary>The datacenter identifier bits</summary>
+        </member>
+        <member name="F:C.O.S.E.C.Infrastructure.Treasury.Snowflake.IdWorker.SequenceBits">
+            <summary>The sequence bits</summary>
+        </member>
+        <member name="F:C.O.S.E.C.Infrastructure.Treasury.Snowflake.IdWorker.MaxWorkerId">
+            <summary>The maximum worker identifier</summary>
+        </member>
+        <member name="F:C.O.S.E.C.Infrastructure.Treasury.Snowflake.IdWorker.MaxDatacenterId">
+            <summary>The maximum datacenter identifier</summary>
+        </member>
+        <member name="F:C.O.S.E.C.Infrastructure.Treasury.Snowflake.IdWorker.WorkerIdShift">
+            <summary>The worker identifier shift</summary>
+        </member>
+        <member name="F:C.O.S.E.C.Infrastructure.Treasury.Snowflake.IdWorker.DatacenterIdShift">
+            <summary>The datacenter identifier shift</summary>
+        </member>
+        <member name="F:C.O.S.E.C.Infrastructure.Treasury.Snowflake.IdWorker.TimestampLeftShift">
+            <summary>The timestamp left shift</summary>
+        </member>
+        <member name="F:C.O.S.E.C.Infrastructure.Treasury.Snowflake.IdWorker.SequenceMask">
+            <summary>The sequence mask</summary>
+        </member>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Snowflake.IdWorker.#ctor(System.Int64,System.Int64,System.Int64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NLC.Treasury.Snowflake.IdWorker" /> class.
+            </summary>
+            <param name="workerId">The worker identifier.</param>
+            <param name="datacenterId">The datacenter identifier.</param>
+            <param name="sequence">The sequence.</param>
+            <exception cref="!:System.ArgumentException">
+            </exception>
+        </member>
+        <member name="P:C.O.S.E.C.Infrastructure.Treasury.Snowflake.IdWorker.WorkerId">
+            <summary>Gets or sets the worker identifier.</summary>
+            <value>The worker identifier.</value>
+        </member>
+        <member name="P:C.O.S.E.C.Infrastructure.Treasury.Snowflake.IdWorker.DatacenterId">
+            <summary>Gets or sets the datacenter identifier.</summary>
+            <value>The datacenter identifier.</value>
+        </member>
+        <member name="P:C.O.S.E.C.Infrastructure.Treasury.Snowflake.IdWorker.Sequence">
+            <summary>Gets the sequence.</summary>
+            <value>The sequence.</value>
+        </member>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Snowflake.IdWorker.NextId">
+            <summary>Next the identifier.</summary>
+            <returns>System.Int64.</returns>
+            <exception cref="T:NLC.Treasury.Snowflake.InvalidSystemClock"></exception>
+        </member>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Snowflake.IdWorker.TilNextMillis(System.Int64)">
+            <summary>Tils the next millis.</summary>
+            <param name="lastTimestamp">The last timestamp.</param>
+            <returns>System.Int64.</returns>
+        </member>
+        <member name="M:C.O.S.E.C.Infrastructure.Treasury.Snowflake.IdWorker.TimeGen">
+            <summary>Times the gen.</summary>
+            <returns>System.Int64.</returns>
+        </member>
+        <member name="T:C.O.S.E.C.ExceptionEx">
+            <summary>
+            日 期：2017.03.04
+            描 述：异常信息扩展
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.ExceptionEx.#ctor(System.String,System.Exception)">
+             <summary>
+            使用异常消息与一个内部异常实例化一个 类的新实例
+             </summary>
+             <param name="message">异常消息</param>
+             <param name="inner">用于封装在DalException内部的异常实例</param>
+        </member>
+        <member name="M:C.O.S.E.C.ExceptionEx.ThrowBusinessException(System.Exception,System.String)">
+             <summary>
+            向调用层抛出业务逻辑访问层异常
+             </summary>
+             <param name="msg"> 自定义异常消息 </param>
+             <param name="e"> 实际引发异常的异常实例 </param>
+        </member>
+        <member name="M:C.O.S.E.C.ExceptionEx.ThrowServiceException(System.Exception,System.String)">
+            <summary>
+            向调用层抛出数据服务访问层异常
+            </summary>
+            <param name="e"></param>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.ExceptionEx.ThrowDataAccessException(System.Exception,System.String)">
+             <summary>
+            向调用层抛出数据访问层异常
+             </summary>
+             <param name="msg"> 自定义异常消息 </param>
+             <param name="e"> 实际引发异常的异常实例 </param>
+        </member>
+        <member name="M:C.O.S.E.C.ExceptionEx.ThrowComponentException(System.Exception,System.String)">
+            <summary>
+                向调用层抛出组件异常
+            </summary>
+            <param name="msg"> 自定义异常消息 </param>
+            <param name="e"> 实际引发异常的异常实例 </param>
+        </member>
+        <member name="T:C.O.S.E.C.Extensions">
+            <summary>
+            日期时间扩展
+            </summary>
+            <summary>
+            格式化扩展
+            </summary>
+            <summary>
+            扩展 - 可空类型
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToInt(System.Object)">
+            <summary>
+            转换为整型
+            </summary>
+            <param name="data">数据</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToIntOrNull(System.Object)">
+            <summary>
+            转换为可空整型
+            </summary>
+            <param name="data">数据</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToDouble(System.Object)">
+            <summary>
+            转换为双精度浮点数
+            </summary>
+            <param name="data">数据</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToDouble(System.Object,System.Int32)">
+            <summary>
+            转换为双精度浮点数,并按指定的小数位4舍5入
+            </summary>
+            <param name="data">数据</param>
+            <param name="digits">小数位数</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToDoubleOrNull(System.Object)">
+            <summary>
+            转换为可空双精度浮点数
+            </summary>
+            <param name="data">数据</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToDecimal(System.Object)">
+            <summary>
+            转换为高精度浮点数
+            </summary>
+            <param name="data">数据</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToDecimal(System.Object,System.Int32)">
+            <summary>
+            转换为高精度浮点数,并按指定的小数位4舍5入
+            </summary>
+            <param name="data">数据</param>
+            <param name="digits">小数位数</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToDecimalOrNull(System.Object)">
+            <summary>
+            转换为可空高精度浮点数
+            </summary>
+            <param name="data">数据</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToDecimalOrNull(System.Object,System.Int32)">
+            <summary>
+            转换为可空高精度浮点数,并按指定的小数位4舍5入
+            </summary>
+            <param name="data">数据</param>
+            <param name="digits">小数位数</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToDate(System.Object)">
+            <summary>
+            转换为日期
+            </summary>
+            <param name="data">数据</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToDateOrNull(System.Object)">
+            <summary>
+            转换为可空日期
+            </summary>
+            <param name="data">数据</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToBool(System.Object)">
+            <summary>
+            转换为布尔值
+            </summary>
+            <param name="data">数据</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.GetBool(System.Object)">
+            <summary>
+            获取布尔值
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToBoolOrNull(System.Object)">
+            <summary>
+            转换为可空布尔值
+            </summary>
+            <param name="data">数据</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToString(System.Object)">
+            <summary>
+            转换为字符串
+            </summary>
+            <param name="data">数据</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ConvertObject``1(System.Object)">
+            <summary>
+            将object对象转换为实体对象
+            </summary>
+            <typeparam name="T">实体对象类名</typeparam>
+            <param name="asObject">object对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ConvertObjectByJson``1(System.Object)">
+            <summary>
+            将object对象转换为实体对象
+            </summary>
+            <typeparam name="T">实体对象类名</typeparam>
+            <param name="asObject">object对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ConvertObjToModel``1(System.Object)">
+            <summary>
+            将object尝试转为指定对象
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.GetPropertyValue(System.Object,System.String)">
+            <summary>
+            获取一个类指定的属性值
+            </summary>
+            <param name="info">object对象</param>
+            <param name="field">属性名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.GetDataByType(System.Object,System.Type,System.Object[])">
+            <summary>
+            将数据转为制定类型
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="data1"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToList``1(System.Data.DataTable)">
+            <summary>
+            DataTable转换泛型集合扩展方法
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="dataTable">数据表</param>
+            <returns>泛型集合</returns>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToDataTable``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            泛型集合转换DataTable扩展方法
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="enumerable">集合</param>
+            <returns>DataTable</returns>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToSplicString``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            泛型集合转换为分割字符串扩展方法
+            </summary>
+            <typeparam name="T">类型</typeparam>
+            <param name="enumerable">集合</param>
+            <returns>分割字符串</returns>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToDateTimeString(System.DateTime,System.Boolean)">
+            <summary>
+            获取格式化字符串，带时分秒，格式："yyyy-MM-dd HH:mm:ss"
+            </summary>
+            <param name="dateTime">日期</param>
+            <param name="isRemoveSecond">是否移除秒</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToDateTimeString(System.Nullable{System.DateTime},System.Boolean)">
+            <summary>
+            获取格式化字符串，带时分秒，格式："yyyy-MM-dd HH:mm:ss"
+            </summary>
+            <param name="dateTime">日期</param>
+            <param name="isRemoveSecond">是否移除秒</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToDateString(System.DateTime)">
+            <summary>
+            获取格式化字符串，不带时分秒，格式："yyyy-MM-dd"
+            </summary>
+            <param name="dateTime">日期</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToDateString(System.Nullable{System.DateTime})">
+            <summary>
+            获取格式化字符串，不带时分秒，格式："yyyy-MM-dd"
+            </summary>
+            <param name="dateTime">日期</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToTimeString(System.DateTime)">
+            <summary>
+            获取格式化字符串，不带年月日，格式："HH:mm:ss"
+            </summary>
+            <param name="dateTime">日期</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToTimeString(System.Nullable{System.DateTime})">
+            <summary>
+            获取格式化字符串，不带年月日，格式："HH:mm:ss"
+            </summary>
+            <param name="dateTime">日期</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToMillisecondString(System.DateTime)">
+            <summary>
+            获取格式化字符串，带毫秒，格式："yyyy-MM-dd HH:mm:ss.fff"
+            </summary>
+            <param name="dateTime">日期</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToMillisecondString(System.Nullable{System.DateTime})">
+            <summary>
+            获取格式化字符串，带毫秒，格式："yyyy-MM-dd HH:mm:ss.fff"
+            </summary>
+            <param name="dateTime">日期</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToChineseDateString(System.DateTime)">
+            <summary>
+            获取格式化字符串，不带时分秒，格式："yyyy年MM月dd日"
+            </summary>
+            <param name="dateTime">日期</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToChineseDateString(System.Nullable{System.DateTime})">
+            <summary>
+            获取格式化字符串，不带时分秒，格式："yyyy年MM月dd日"
+            </summary>
+            <param name="dateTime">日期</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToChineseDateTimeString(System.DateTime,System.Boolean)">
+            <summary>
+            获取格式化字符串，带时分秒，格式："yyyy年MM月dd日 HH时mm分"
+            </summary>
+            <param name="dateTime">日期</param>
+            <param name="isRemoveSecond">是否移除秒</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.ToChineseDateTimeString(System.Nullable{System.DateTime})">
+            <summary>
+            获取格式化字符串，带时分秒，格式："yyyy年MM月dd日 HH时mm分"
+            </summary>
+            <param name="dateTime">日期</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.Description(System.Boolean)">
+            <summary>
+            获取描述
+            </summary>
+            <param name="value">布尔值</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.Description(System.Nullable{System.Boolean})">
+            <summary>
+            获取描述
+            </summary>
+            <param name="value">布尔值</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.Format(System.Int32,System.String)">
+            <summary>
+            获取格式化字符串
+            </summary>
+            <param name="number">数值</param>
+            <param name="defaultValue">空值显示的默认文本</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.Format(System.Nullable{System.Int32},System.String)">
+            <summary>
+            获取格式化字符串
+            </summary>
+            <param name="number">数值</param>
+            <param name="defaultValue">空值显示的默认文本</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.Format(System.Decimal,System.String)">
+            <summary>
+            获取格式化字符串
+            </summary>
+            <param name="number">数值</param>
+            <param name="defaultValue">空值显示的默认文本</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.Format(System.Nullable{System.Decimal},System.String)">
+            <summary>
+            获取格式化字符串
+            </summary>
+            <param name="number">数值</param>
+            <param name="defaultValue">空值显示的默认文本</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.Format(System.Double,System.String)">
+            <summary>
+            获取格式化字符串
+            </summary>
+            <param name="number">数值</param>
+            <param name="defaultValue">空值显示的默认文本</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.Format(System.Nullable{System.Double},System.String)">
+            <summary>
+            获取格式化字符串
+            </summary>
+            <param name="number">数值</param>
+            <param name="defaultValue">空值显示的默认文本</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.FormatRmb(System.Decimal)">
+            <summary>
+            获取格式化字符串,带￥
+            </summary>
+            <param name="number">数值</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.FormatRmb(System.Nullable{System.Decimal})">
+            <summary>
+            获取格式化字符串,带￥
+            </summary>
+            <param name="number">数值</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.FormatPercent(System.Decimal)">
+            <summary>
+            获取格式化字符串,带%
+            </summary>
+            <param name="number">数值</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.FormatPercent(System.Nullable{System.Decimal})">
+            <summary>
+            获取格式化字符串,带%
+            </summary>
+            <param name="number">数值</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.FormatPercent(System.Double)">
+            <summary>
+            获取格式化字符串,带%
+            </summary>
+            <param name="number">数值</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.FormatPercent(System.Nullable{System.Double})">
+            <summary>
+            获取格式化字符串,带%
+            </summary>
+            <param name="number">数值</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.SafeValue``1(System.Nullable{``0})">
+            <summary>
+            安全返回值
+            </summary>
+            <param name="value">可空值</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.CheckNull(System.Object,System.String)">
+            <summary>
+            检测空值,为default则抛出ArgumentNullException异常
+            </summary>
+            <param name="obj">对象</param>
+            <param name="parameterName">参数名</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.IsEmpty(System.String)">
+            <summary>
+            是否为空
+            </summary>
+            <param name="value">值</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.IsEmpty(System.Nullable{System.Guid})">
+            <summary>
+            是否为空
+            </summary>
+            <param name="value">值</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.IsEmpty(System.Guid)">
+            <summary>
+            是否为空
+            </summary>
+            <param name="value">值</param>
+        </member>
+        <member name="M:C.O.S.E.C.Extensions.IsEmpty(System.Object)">
+            <summary>
+            是否为空
+            </summary>
+            <param name="value">值</param>
+        </member>
+        <member name="M:C.O.S.E.C.LinqExtension.Each``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>each循环</summary>
+            <typeparam name="T"></typeparam>
+            <param name="iEnumerable"></param>
+            <param name="action"></param>
+        </member>
+        <member name="M:C.O.S.E.C.LinqExtension.Each``1(System.Collections.IEnumerable,System.Action{``0})">
+            <summary>
+            
+            </summary>
+            <param name="iEnumerable"></param>
+            <param name="action"></param>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:C.O.S.E.C.MemberExtension.RemoveUnary(System.Linq.Expressions.Expression)">
+            <summary>Removes the unary.</summary>
+            <param name="toUnwrap">To unwrap.</param>
+            <returns>MemberExpression.</returns>
+        </member>
+        <member name="M:C.O.S.E.C.MemberExtension.GetMember``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>Gets the member.</summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TProperty">The type of the t property.</typeparam>
+            <param name="expression">The expression.</param>
+            <returns>MemberInfo.</returns>
+        </member>
+        <member name="T:C.O.S.E.C.Validator">
+            <summary>
+            RegExp Soruce:   http://regexlib.com/DisplayPatterns.aspx
+            Author:柳永法 yongfa365 http://www.yongfa365.com/ yongfa365@qq.com
+            Intro:验证 网址，IP，邮箱，电话，手机，数字，英文，日期，身份证，邮编，
+            原则上是中国通用，因为各种场合不一样所以有特殊情况肯定要自己再手写，这里只能是提供一些通用的验证，追求太完美是不现实的。
+            </summary>
+        </member>
+        <member name="M:C.O.S.E.C.Validator.IsEmail(System.String)">
+            <summary>
+            验证邮箱
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Validator.IsUrl(System.String)">
+            <summary>
+            验证网址
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Validator.IsDateTime(System.String)">
+            <summary>
+            验证日期
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Validator.IsMobile(System.String)">
+            <summary>
+            验证手机号
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Validator.IsIP(System.String)">
+            <summary>
+            验证IP
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Validator.IsIDCard(System.String)">
+            <summary>
+            验证身份证是否有效
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Validator.IsInt(System.String)">
+            <summary>
+            是不是Int型的
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Validator.IsLengthStr(System.String,System.Int32,System.Int32)">
+            <summary>
+            看字符串的长度是不是在限定数之间 一个中文为两个字符
+            </summary>
+            <param name="source">字符串</param>
+            <param name="begin">大于等于</param>
+            <param name="end">小于等于</param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Validator.IsTel(System.String)">
+            <summary>
+            是不是中国电话，格式010-85849685
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Validator.IsPostCode(System.String)">
+            <summary>
+            邮政编码 6个数字
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Validator.IsChinese(System.String)">
+            <summary>
+            中文
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Validator.IsNormalChar(System.String)">
+            <summary>
+            验证是不是正常字符 字母，数字，下划线的组合
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Treasury.Helpers.LogHelper.SetLog(System.String,System.String,System.String)">
+            <summary>
+            写入日志
+            </summary>       
+            <param name="type">日志类型</param>
+            <param name="msg">日志信息</param>
+        </member>
+        <member name="M:C.O.S.E.C.Treasury.Helpers.LogHelper.SetLog(System.String,System.Exception,System.String)">
+            <summary>
+            写入日志
+            </summary>       
+            <param name="type">日志类型</param>
+            <param name="ex">Exception</param>
+        </member>
+    </members>
+</doc>

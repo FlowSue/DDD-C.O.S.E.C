@@ -13,10 +13,10 @@
             <summary>
             构造函数
             </summary>
-            <param name="cluePoolBLL"></param>
-            <param name="businessPoolBLL"></param>
-            <param name="customerBLL"></param>
-            <param name="trailRecordBLL"></param>
+            <param name="cluePoolBll"></param>
+            <param name="businessPoolBll"></param>
+            <param name="customerBll"></param>
+            <param name="trailRecordBll"></param>
         </member>
         <member name="M:C.O.S.E.C.Api.Controllers.CustomerController.GetCluesAsync">
             <summary>
@@ -461,7 +461,7 @@
             模拟登录，获取JWT
             </summary>
             <param name="uid"></param>
-            <param name="username"></param>
+            <param name="uname"></param>
             <param name="role"></param>
             <param name="project"></param>
             <param name="tokenType"></param>

@@ -77,7 +77,7 @@ namespace C.O.S.E.C.Business
 
         public async Task<bool> RangeAsync(List<CluePool> list)
         {
-            var result = await Db.Ado.UseTranAsync(() => Db.Insertable(list).ExecuteCommand() > 0);
+            var result = await Db.Ado.UseTranAsync(async () => await this.Db.Insertable(list).ExecuteCommandAsync() > 0);
             if (result.IsSuccess)
             {
                 return result.Data;

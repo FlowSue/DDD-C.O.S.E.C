@@ -1,13 +1,15 @@
-﻿//系统被包
-//微软包
-using Microsoft.Extensions.DependencyModel;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Loader;
-
-namespace C.O.S.E.C.Infrastructure.Treasury.Di
+﻿namespace C.O.S.E.C.Infrastructure.Treasury.Di
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Reflection;
+    using System.Runtime.Loader;
+
+    using Microsoft.Extensions.DependencyModel;
+
+    /// <summary>
+    /// 
+    /// </summary>
     public static class DiHelper
     {
         /// <summary>

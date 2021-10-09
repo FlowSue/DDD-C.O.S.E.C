@@ -20,34 +20,36 @@ namespace C.O.S.E.C.Infrastructure.Treasury.Di
         [Obsolete]
         public static IServiceCollection AddAssemblyServices(this IServiceCollection services, Assembly assembly, Func<Type, bool> filter, ServiceLifetime serviceLifetime = ServiceLifetime.Scoped)
         {
-            var typeList = new List<Type>();//所有符合注册条件的类集合
+            // 所有符合注册条件的类集合
+            var typeList = new List<Type>();
 
-            //筛选当前程序集下符合条件的类
+            // 筛选当前程序集下符合条件的类
             List<Type> types = assembly.GetTypes()
-                .Where(t => t.IsClass && !t.IsGenericType)//排除了泛型类
-                .Where(filter)
-                .ToList();
+                .Where(t => t.IsClass && !t.IsGenericType) /*排除泛型类*/
+                .Where(filter).ToList();
 
             typeList.AddRange(types);
             if (!typeList.Any()) return services;
 
-            var typeDic = new Dictionary<Type, Type[]>(); //待注册集合<class,interface>
+            var typeDic = new Dictionary<Type, Type[]>(); /*待注册集合<class,interface>*/
             foreach (var type in typeList)
             {
-                var interfaces = type.GetInterfaces();   //获取接口
+                var interfaces = type.GetInterfaces(); /*获取接口*/
                 typeDic.Add(type, interfaces);
             }
 
-            //循环实现类
+            // 循环实现类
             foreach (var instanceType in typeDic.Keys)
             {
                 Type[] interfaceTypeList = typeDic[instanceType];
-                if (interfaceTypeList == null | interfaceTypeList?.Count() == 0)//如果该类没有实现接口，则以其本身类型注册
+                if (interfaceTypeList == null | interfaceTypeList?.Count() == 0)
                 {
+                    // 如果该类没有实现接口，则以其本身类型注册
                     services.AddServiceWithLifeScoped(null, instanceType, serviceLifetime);
                 }
-                else//如果该类有实现接口，则循环其实现的接口，一一配对注册
+                else
                 {
+                    // 如果该类有实现接口，则循环其实现的接口，一一配对注册
                     foreach (var interfaceType in interfaceTypeList)
                     {
                         services.AddServiceWithLifeScoped(interfaceType, instanceType, serviceLifetime);

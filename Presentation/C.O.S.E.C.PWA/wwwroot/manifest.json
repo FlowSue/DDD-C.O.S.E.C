@@ -1,6 +1,6 @@
 {
-  "name": "C.O.S.E.C.App.PWA",
-  "short_name": "C.O.S.E.C.App.PWA",
+  "name": "C.O.S.E.C.PWA",
+  "short_name": "C.O.S.E.C.PWA",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
