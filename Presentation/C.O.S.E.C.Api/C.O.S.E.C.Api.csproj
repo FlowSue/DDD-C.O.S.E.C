@@ -24,8 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Domain\C.O.S.E.C.Domain.DomainService\C.O.S.E.C.Domain.DomainService.csproj" />
-    <ProjectReference Include="..\..\Domain\C.O.S.E.C.Domain\C.O.S.E.C.Domain.csproj" />
+    <ProjectReference Include="..\..\Application\C.O.S.E.C.Application\C.O.S.E.C.Application.csproj" />
     <ProjectReference Include="..\..\Infrastructure\C.O.S.E.C.Infrastructure.Repository\C.O.S.E.C.Infrastructure.Repository.csproj" />
     <ProjectReference Include="..\..\Infrastructure\C.O.S.E.C.Infrastructure\C.O.S.E.C.Infrastructure.csproj" />
   </ItemGroup>

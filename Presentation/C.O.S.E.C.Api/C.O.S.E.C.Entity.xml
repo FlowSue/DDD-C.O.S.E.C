@@ -2153,6 +2153,107 @@
             派生类中重写此方法时，需要释放派生类中额外使用的资源。
             </summary> 
         </member>
+        <member name="T:C.O.S.E.C.Domain.InterfaceDrivers.IBaseBLL">
+            <summary>
+            依赖注入所用接口
+            </summary>
+        </member>
+        <member name="T:C.O.S.E.C.Domain.InterfaceDrivers.IBaseBLL`1">
+            <summary>
+            通用业务接口
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.InterfaceDrivers.IBaseBLL`1.GetList">
+            <summary>
+            获取列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.InterfaceDrivers.IBaseBLL`1.GetList(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            获取列表
+            </summary>
+            <param name="exp">查询表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.InterfaceDrivers.IBaseBLL`1.GetPageList(C.O.S.E.C.Domain.Models.Pagination,System.Int32@)">
+            <summary>
+            获取分页列表
+            </summary>
+            <param name="pagination">分页参数Model</param>
+            <param name="pageCount">页码</param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.InterfaceDrivers.IBaseBLL`1.GetPageList(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},C.O.S.E.C.Domain.Models.Pagination,System.Int32@)">
+            <summary>
+            获取分页列表
+            </summary>
+            <param name="exp">查询表达式</param>
+            <param name="pagination">分页参数Model</param>
+            <param name="pageCount">页码</param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.InterfaceDrivers.IBaseBLL`1.GetEntity(System.Guid)">
+            <summary>
+            获取实体
+            </summary>
+            <param name="keyValue">主键ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.InterfaceDrivers.IBaseBLL`1.GetEntityAsync(System.Guid)">
+            <summary>
+            获取实体（异步）
+            </summary>
+            <param name="keyValue">主键ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.InterfaceDrivers.IBaseBLL`1.GetListAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            获取列表（异步）
+            </summary>
+            <param name="exp">查询表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.InterfaceDrivers.IBaseBLL`1.GetPageListAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},C.O.S.E.C.Domain.Models.Pagination,SqlSugar.RefAsync{System.Int32})">
+            <summary>
+            获取分页列表（异步）
+            </summary>
+            <param name="exp">查询表达式</param>
+            <param name="pagination">分页参数Model</param>
+            <param name="pageCount">页码</param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.InterfaceDrivers.IBaseBLL`1.SaveForm(System.Guid,`0)">
+            <summary>
+            保存
+            </summary>
+            <param name="keyValue">主键ID，空为新增，否则为修改</param>
+            <param name="entity">实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.InterfaceDrivers.IBaseBLL`1.SaveFormAsync(System.Guid,`0)">
+            <summary>
+            保存（异步）
+            </summary>
+            <param name="keyValue">主键ID，空为新增，否则为修改</param>
+            <param name="entity">实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.InterfaceDrivers.IBaseBLL`1.Delete(System.Guid)">
+            <summary>
+            删除
+            </summary>
+            <param name="keyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:C.O.S.E.C.Domain.InterfaceDrivers.IBaseBLL`1.DeleteAsync(System.Guid)">
+            <summary>
+            删除（异步）
+            </summary>
+            <param name="keyValue">主键ID</param>
+            <returns></returns>
+        </member>
         <member name="T:C.O.S.E.C.Domain.InterfaceDrivers.IEntity`1">
             <summary>
             实体通用接口

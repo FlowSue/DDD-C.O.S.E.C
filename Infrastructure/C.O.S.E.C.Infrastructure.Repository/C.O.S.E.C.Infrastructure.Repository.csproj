@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Domain\C.O.S.E.C.Domain.DomainService\C.O.S.E.C.Domain.DomainService.csproj" />
-    <ProjectReference Include="..\..\Domain\C.O.S.E.C.Domain\C.O.S.E.C.Domain.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\Domain\C.O.S.E.C.Domain.DomainService\C.O.S.E.C.Domain.DomainService.csproj" />
+		<ProjectReference Include="..\..\Domain\C.O.S.E.C.Domain\C.O.S.E.C.Domain.csproj" />
+	</ItemGroup>
 
 </Project>
